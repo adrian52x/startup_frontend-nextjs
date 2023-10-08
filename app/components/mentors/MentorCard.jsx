@@ -84,13 +84,14 @@ const MentorCard = ({
             </div>
             
             {onAction && actionLabel && (
-            <Button
-                disabled={disabled}
-                small
-                label={actionLabel} 
-                onClick={handleCancel}
-            />
-            )}
+                
+                <Button
+                    disabled={disabled}
+                    small
+                    label={actionLabel} 
+                    onClick={handleCancel}
+                />
+            )} 
         </div>
     </div>
    );

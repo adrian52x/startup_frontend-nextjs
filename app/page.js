@@ -1,10 +1,19 @@
 import getMentors from "./actions/getMentors";
 import Container from "./components/Container";
 import MentorCard from "./components/mentors/MentorCard";
+import EmptyState from "./components/EmptyState";
 
 export default async function Home() {
 
   const mentors = await getMentors();
+
+  const isEmpty = false;
+
+  if(isEmpty){
+    return (
+        <EmptyState />
+    )
+  }
 
   return (
     <Container>
