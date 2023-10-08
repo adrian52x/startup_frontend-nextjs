@@ -1,34 +1,30 @@
 'use client';
-import categories from "@/app/data-services/categories";
+
+const CategoryBox = ({ icon:Icon, label, selected,}) => {
+    return ( 
+        <div className={`
+            flex 
+            flex-col 
+            items-center 
+            justify-center 
+            gap-2
+            p-3
+            border-b-2
+            hover:text-neutral-800
+            transition
+            cursor-pointer
+            ${selected ? 'border-b-neutral-800' : 'border-transparent'}
+            ${selected ? 'text-neutral-800' : 'text-neutral-400'}
+        `}>
 
 
-const CategoryBox = ({  icon:Icon, label, selected,}) => {
-    
-  
-  return ( 
-    <div 
+            <Icon size={24} />
+            <div className="font-medium text-sm">
+                {label}
+            </div>
 
-    className={`
-    flex 
-    flex-col 
-    items-center 
-    justify-center 
-    gap-2
-    p-3
-    border-b-2
-    hover:text-neutral-800
-    transition
-    cursor-pointer
-    ${selected ? 'border-b-neutral-800' : 'border-transparent'}
-    ${selected ? 'text-neutral-800' : 'text-neutral-500'}
-  `}>
-
-
-        <Icon size={24} />
-        <div>{label}</div>
-
-    </div>
-   );
+        </div>
+    );
 }
  
 export default CategoryBox;

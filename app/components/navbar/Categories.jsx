@@ -4,6 +4,8 @@ import CategoryBox from "../CategoryBox";
 import Container from "../Container";
 import categories from "@/app/data-services/categories";
 
+
+// hide categories if not main page ! (video 3:00:00)
 const Categories = () => {
   return (
     <div className="shadow"> 
