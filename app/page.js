@@ -7,11 +7,13 @@ export default async function Home() {
 
   const mentors = await getMentors();
 
-  const isEmpty = false;
+  console.log("mentors", mentors);
 
-  if(isEmpty){
+  if(mentors.length === 0){
     return (
-        <EmptyState />
+
+        <EmptyState showReset/>
+        
     )
   }
 

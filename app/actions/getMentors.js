@@ -35,6 +35,8 @@ export default async function getMentors() {
         //body: JSON.stringify(query)
       }).then(res => res.json());
 
+      
+
       return mentors;
 
     } catch (error) {

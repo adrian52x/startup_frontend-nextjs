@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 
 import Navbar from './components/navbar/Navbar';
 import Modal from './components/modals/Modal';
-import Categories from './components/CategoryBox';
 
 
 const font = Inter({ subsets: ['latin'] })
