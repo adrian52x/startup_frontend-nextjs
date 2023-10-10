@@ -15,7 +15,7 @@ const CategoryBox = ({ icon:Icon, label, selected,}) => {
         let currentQuery = {};
     
         if (params) {
-        currentQuery = qs.parse(params.toString())
+            currentQuery = qs.parse(params.toString())
         }
 
         const updatedQuery = {
@@ -24,7 +24,7 @@ const CategoryBox = ({ icon:Icon, label, selected,}) => {
         }
 
         if (params?.get('category') === label) {
-        delete updatedQuery.category;
+            delete updatedQuery.category;
         }
 
         const url = qs.stringifyUrl({
@@ -48,6 +48,7 @@ const CategoryBox = ({ icon:Icon, label, selected,}) => {
             hover:text-neutral-800
             transition
             cursor-pointer
+            hover:border-b-neutral-300
             ${selected ? 'border-b-neutral-800' : 'border-transparent'}
             ${selected ? 'text-neutral-800' : 'text-neutral-400'}
         `}>

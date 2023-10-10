@@ -8,12 +8,12 @@ import { HiMiniComputerDesktop } from "react-icons/hi2";
 
 const categories = [
   {
-    label : 'Juridica',
+    label : 'Legal',
     icon : VscLaw,
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Sanatate',
+    label : 'Healthcare',
     icon : FaUserDoctor,
     description : 'These mentors operate in the law field'
   },
@@ -23,12 +23,12 @@ const categories = [
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Text1',
+    label : 'Business',
     icon : MdOutlineWork,
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Text2',
+    label : 'Entrepreneurship',
     icon : MdOutlineWork,
     description : 'These mentors operate in the law field'
   },

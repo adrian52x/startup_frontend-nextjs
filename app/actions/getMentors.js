@@ -1,38 +1,45 @@
-export default async function getMentors() {
+
+export default async function getMentors(params) {
     try {
-    //   const {
-    //     category,
-    //     expertise,
-    //     location,
-    //     availability,
-    //   } = params;
+        const {
+            category,
+            search,
+        } = params;
 
-    //   let query = {
-    //     isMentor: true
-    //   };
+        //console.log(params);
 
-    //   if (category) {
-    //     query.category = category;
-    //   }
+        let query = {};
 
-    //   if (expertise) {
-    //     query.expertise = expertise;
-    //   }
+        if (category) {
+            query.category = category;
+        }
 
-    //   if (location) {
-    //     query.location = location;
-    //   }
+        if (search) {
+            query.search = search;
+        }
 
-    //   if (availability) {
-    //     query.availability = availability;
-    //   }
 
-      
-      const mentors = await fetch('http://localhost:5000/api/mentors').then(res => res.json());
+        const queryString = new URLSearchParams(query).toString();
+        let url = null;
+
+        if (JSON.stringify(query) === '{}') {
+            console.log("empty");
+            url = `http://localhost:5000/api/mentors`;
+        } else {
+            console.log("not empty");
+            url = `http://localhost:5000/api/mentors?${queryString}`;
+        }
+
+        
+       
+        const mentors = await fetch(url, { cache: 'no-store' }).then(res => res.json());
+
+
       //const mentors = [response[3]];
+    //   const response = await fetch('http://localhost:5000/api/mentors2');
+    //   const mentors = await response.json();
 
-      // const response = await fetch('http://localhost:5000/api/mentors');
-      // const mentors = await response.json();
+      //console.log(mentors);
       
 
       return mentors;

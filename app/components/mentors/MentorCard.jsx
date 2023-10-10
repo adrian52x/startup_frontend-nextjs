@@ -58,23 +58,27 @@ const MentorCard = ({
 
   return (
     <div 
-      onClick={() => router.push(`/listings/${data._id}`)} 
+      onClick={() => router.push(`/mentors/${data._id}`)} 
       className="col-span-1 cursor-pointer group"
     >
         <div className="flex flex-col gap-2 w-full">
             <div className="aspect-square w-full relative overflow-hidden rounded-xl">
                 <Image fill className="object-cover h-full w-full group-hover:scale-110 transition" src={'/images/placeholder.jpg'} alt="Listing" />
                     <div className="absolute top-3 right-3">
-                        add fav
+                        {/* add fav */}
                     </div>
                 </div>
 
                 <div className="font-semibold text-lg">
-                {data.firstName}
+                  {data.firstName} {data.lastName}
                 </div>
 
                 <div className="font-light text-neutral-500">
-                text
+                  {data.email}
+                </div>
+
+                <div className="font-light text-neutral-500 italic">
+                  {data.category.join(", ")}
                 </div>
 
                 <div className="flex flex-row items-center gap-1">

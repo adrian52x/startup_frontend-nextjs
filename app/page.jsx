@@ -1,25 +1,25 @@
+
 import getMentors from "./actions/getMentors";
 import Container from "./components/Container";
 import MentorCard from "./components/mentors/MentorCard";
 import EmptyState from "./components/EmptyState";
 
-export default async function Home() {
+export default async function Home({ searchParams }) {
 
-  const mentors = await getMentors();
+    const mentors = await getMentors(searchParams);
+    console.log("searchParams", searchParams);
 
-  console.log("mentors", mentors);
+    if(mentors.length === 0){
+        return (
 
-  if(mentors.length === 0){
+            <EmptyState showReset/>
+            
+        )
+    }
+
     return (
-
-        <EmptyState showReset/>
-        
-    )
-  }
-
-  return (
     <Container>
-        <div className="pt-60 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
+        <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
             {mentors.map((mentor) => (
                 <MentorCard
                     key={mentor._id}

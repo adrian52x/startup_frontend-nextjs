@@ -18,7 +18,10 @@ export default function RootLayout({ children }) {
         <body className={font.className}>
             <Modal />
             <Navbar/>
-            {children}
+            
+            <div className="pb-20 pt-28">
+              {children}
+            </div>
         
         </body>
     </html>
