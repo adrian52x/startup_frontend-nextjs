@@ -8,6 +8,7 @@ const Button = ({
   outline,
   small,
   icon: Icon,
+  customWidth,
 }) => {
   return ( 
     <button
@@ -20,7 +21,7 @@ const Button = ({
         rounded-lg
         hover:opacity-80
         transition
-        w-full
+        ${customWidth || 'w-full'}
         ${outline ? 'bg-white' : 'bg-rose-500'}
         ${outline ? 'border-black' : 'border-rose-500'}
         ${outline ? 'text-black' : 'text-white'}

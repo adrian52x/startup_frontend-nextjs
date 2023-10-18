@@ -61,22 +61,24 @@ const MentorClient = ({mentor, reservations = [],currentUser}) => {
                 </div>
                 <div className="col-span-2 sm:col-span-1">
                     <div className="aspect-w-16 aspect-h-9">
-                        <iframe src="https://www.youtube.com/embed/kBsgqpYajTk" title="Mentor Video" className="w-full h-96" allowFullScreen></iframe>                    
+                        <iframe src="https://www.youtube.com/embed/kBsgqpYajTk" title="Mentor Video" className="w-full h-96  rounded-lg" allowFullScreen>
+                        </iframe>                    
                     </div>
                 </div>
             </div>
         </section>
 
         <section className="my-8 shadow-lg p-4">
+
             <h2 className="text-2xl font-bold mb-4">Book a Session</h2>
-            
+
             <div className='flex flex-col gap-10 justify-center sm:flex-row sm:justify-start'>
                 <Calendar
                 value={selectedDate}
                 onChange={handleDateChange}
                 />
 
-                {selectedDate && (<div className=" grid grid-cols-4 gap-4 max-h-32">
+                {selectedDate && (<div className=" grid grid-cols-4 gap-4 max-h-60 sm:col-span-1">
                         {timeFrames.map((time, index) => (
                         <div
                             onClick={() => setSelectedTime(time)}
@@ -88,11 +90,17 @@ const MentorClient = ({mentor, reservations = [],currentUser}) => {
                         ))}
                 </div>)}
 
-                {(selectedDate && selectedTime) &&(<div className="">
+                {(selectedDate && selectedTime) &&(<div className="space-y-2 sm:col-span-1">
                    <h2>Selected date: {selectedDate.toDateString()}</h2>
                    <h2>Selected time: {selectedTime}</h2>
-                   <Button label={"Book now"} small onClick={() => createBooking(mentor, selectedDate, selectedTime)}  ></Button>
+                   <Button
+                        customWidth={"w-3/5"}
+                        label="Book now"
+                        small
+                        onClick={() => createBooking(mentor, selectedDate, selectedTime)}  >
+                   </Button>
                 </div>)}
+
             </div>
         </section>
 
