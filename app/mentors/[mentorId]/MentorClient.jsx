@@ -61,7 +61,7 @@ const MentorClient = ({mentor, reservations = [],currentUser}) => {
                 </div>
                 <div className="col-span-2 sm:col-span-1">
                     <div className="aspect-w-16 aspect-h-9">
-                        <iframe src="https://www.youtube.com/embed/kBsgqpYajTk" title="Mentor Video" className="w-full h-96  rounded-lg" allowFullScreen>
+                        <iframe src="https://www.youtube.com/embed/p2vpqKBPj4U" title="Mentor Video" className="w-full h-96  rounded-lg" allowFullScreen>
                         </iframe>                    
                     </div>
                 </div>
