@@ -18,12 +18,14 @@ import Modal from "./Modal";
 import Input from "../inputs/Input";
 import Heading from "../Heading";
 import Button from "../Button";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 
 
 
 const RegisterModal= () => {
     const registerModal = useRegisterModal();
+    const loginModal = useLoginModal();
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -58,7 +60,7 @@ const RegisterModal= () => {
 
       const onToggle = useCallback(() => {
         registerModal.onClose();
-        //loginModal.onOpen();
+        loginModal.onOpen();
       }, [registerModal])
 
       const bodyContent = (

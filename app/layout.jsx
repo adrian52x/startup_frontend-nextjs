@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Navbar from './components/navbar/Navbar';
 import RegisterModal from './components/modals/RegisterModal';
 import ToasterProvider from './components/ToasterProvider';
+import LoginModal from './components/modals/LoginModal';
 
 
 const font = Inter({ subsets: ['latin'] })
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
         <body className={font.className}>
             <ToasterProvider/>
             <RegisterModal/>
+            <LoginModal/>
             <Navbar/>
             
             <div className="pb-20 pt-28">
