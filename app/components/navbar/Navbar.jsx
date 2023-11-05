@@ -6,8 +6,14 @@ import Search from "./Search";
 import UserMenu from "./UserMenu";
 import Categories from "./Categories";
 
+import { useSession } from "next-auth/react";
+
 
 const Navbar = () => {
+    const { data: session, status } = useSession();
+
+    console.log("session in navbar", session);
+
     return (
         <div className="fixed w-full bg-white z-10 shadow-sm">
             <div className="py-4 border-b-[1px]"> 
@@ -16,8 +22,8 @@ const Navbar = () => {
                         <Logo />
                         <Search />
                         <UserMenu />
-                    
                     </div>
+                    {session?.user.email}
                 </Container>
             </div>
             <Categories />

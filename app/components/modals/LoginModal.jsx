@@ -38,7 +38,7 @@ const LoginModal = () => {
 	const onSubmit = (data) => {
 		setIsLoading(true);
 
-			console.log("Logged In", data);
+			console.log("Login", data);
 
 			signIn('credentials', { 
 				...data, 
@@ -48,13 +48,14 @@ const LoginModal = () => {
 				setIsLoading(false);
 
 				if (callback?.ok) {
-				toast.success('Logged in');
-				//router.refresh();
-				loginModal.onClose();
+					toast.success('Succesfully logged in');
+					router.refresh();
+					loginModal.onClose();
 				}
 				
 				if (callback?.error) {
-				toast.error(callback.error);
+					console.log("login callback", callback);
+					toast.error(callback.error);
 				}
 			});
 	}

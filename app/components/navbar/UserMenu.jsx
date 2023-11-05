@@ -8,7 +8,11 @@ import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 
+import { useSession } from "next-auth/react";
+
 const UserMenu = ({  }) => {
+    const { data: session, status } = useSession();
+
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
 
@@ -38,8 +42,10 @@ const UserMenu = ({  }) => {
             {isOpen && (
                 <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
                     <div className="flex flex-col cursor-pointer">
-                        {false ? (
+                        {status === "authenticated" ? (
                         <>
+                            <MenuItem label={session?.user.email}/>
+                            <MenuItem label={session?.user.firstName + ' ' + session?.user.lastName}/>
                             <MenuItem label="Profile" onClick={() => router.push('/profile')}/>
                             <MenuItem label="My meetings" onClick={() => router.push('/meetings')}/>
                             <MenuItem label="My favorites" onClick={() => router.push('/favorites')}/>
@@ -56,6 +62,7 @@ const UserMenu = ({  }) => {
                             label="Sign up" 
                             onClick={registerModal.onOpen}
                             />
+                            
                         </>
                         )}
                     </div>
