@@ -1,10 +1,11 @@
 import { getServerSession } from "next-auth/next"
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 //import { GET } from "@/app/api/auth/[...nextauth]/route.js";
 
 
 export async function getSession() {
-  return await getServerSession()
+  return await getServerSession(authOptions)
 }
 
 export default async function getCurrentUser() {
@@ -27,7 +28,7 @@ export default async function getCurrentUser() {
 
     // return currentUser;
 
-   console.log("currentUser", session.user);
+   //console.log("currentUser", session.user);
 
    return session.user;
 

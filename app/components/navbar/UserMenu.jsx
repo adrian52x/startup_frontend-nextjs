@@ -46,9 +46,10 @@ const UserMenu = ({ currentUser }) => {
                         {currentUser ? (
                         <>
                             <MenuItem label={currentUser.email}/>
+                            <MenuItem label={currentUser.firstName + ' ' + currentUser.lastName}/>
                             <MenuItem label="Profile" onClick={() => router.push('/profile')}/>
-                            <MenuItem label="My meetings" onClick={() => router.push('/meetings')}/>
-                            <MenuItem label="My favorites" onClick={() => router.push('/favorites')}/>
+                            <MenuItem label="My sessions" onClick={() => router.push('/sessions')}/>
+                            <MenuItem label="Messages" onClick={() => router.push('/messages')}/>
                             <hr />
                             <MenuItem label="Logout" onClick={() => signOut()}/>
                         </>

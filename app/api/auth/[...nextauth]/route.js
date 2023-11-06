@@ -1,10 +1,11 @@
 import NextAuth from 'next-auth';
+
 import CredentialsProvider from "next-auth/providers/credentials";
 
 // https://medium.com/ascentic-technology/authentication-with-next-js-13-and-next-auth-9c69d55d6bfd
 // https://next-auth.js.org/v3/getting-started/client
 
-const handler = NextAuth({
+export const authOptions = {
   session: {
     strategy: "jwt",
   },
@@ -44,13 +45,13 @@ const handler = NextAuth({
     jwt: async ({ token, user }) => {
       if (user) token = user;
       
-      console.log("token1", token);
+      //console.log("token1", token);
       
       return token;
     },
     session: async ({ session, token }) => {
       session.user = { ...token }
-      console.log("session", session);
+      //console.log("session", session);
     
       return session;
     },
@@ -61,7 +62,9 @@ const handler = NextAuth({
   },
   debug: process.env.NODE_ENV === 'development'
 
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
 
