@@ -8,10 +8,11 @@ import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 
-import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
+//import { useSession } from "next-auth/react";
 
-const UserMenu = ({  }) => {
-    const { data: session, status } = useSession();
+const UserMenu = ({ currentUser }) => {
+    //const { data: session, status } = useSession();
 
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
@@ -42,15 +43,14 @@ const UserMenu = ({  }) => {
             {isOpen && (
                 <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
                     <div className="flex flex-col cursor-pointer">
-                        {status === "authenticated" ? (
+                        {currentUser ? (
                         <>
-                            <MenuItem label={session?.user.email}/>
-                            <MenuItem label={session?.user.firstName + ' ' + session?.user.lastName}/>
+                            <MenuItem label={currentUser.email}/>
                             <MenuItem label="Profile" onClick={() => router.push('/profile')}/>
                             <MenuItem label="My meetings" onClick={() => router.push('/meetings')}/>
                             <MenuItem label="My favorites" onClick={() => router.push('/favorites')}/>
                             <hr />
-                            <MenuItem label="Logout" onClick={() => {}}/>
+                            <MenuItem label="Logout" onClick={() => signOut()}/>
                         </>
                         ) : (
                         <>

@@ -6,6 +6,7 @@ import RegisterModal from './components/modals/RegisterModal';
 import ToasterProvider from './components/ToasterProvider';
 import LoginModal from './components/modals/LoginModal';
 import Providers from './components/Providers';
+import getCurrentUser from './actions/getCurrentUser';
 
 
 const font = Inter({ subsets: ['latin'] })
@@ -15,7 +16,8 @@ export const metadata = {
   description: 'frontend',
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const currentUser = await getCurrentUser();
   return (
     <html lang="en">
         <body className={font.className}>
@@ -23,7 +25,7 @@ export default function RootLayout({ children }) {
             <ToasterProvider/>
             <RegisterModal/>
             <LoginModal/>
-            <Navbar/>
+            <Navbar currentUser = {currentUser}/>
             
            
             <div className="pb-20 pt-28">
