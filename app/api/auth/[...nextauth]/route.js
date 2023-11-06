@@ -1,6 +1,9 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
 
+// https://medium.com/ascentic-technology/authentication-with-next-js-13-and-next-auth-9c69d55d6bfd
+// https://next-auth.js.org/v3/getting-started/client
+
 const handler = NextAuth({
   session: {
     strategy: "jwt",
@@ -24,7 +27,6 @@ const handler = NextAuth({
           },
           body: JSON.stringify(payload),
         });
-        
         
         const user = await res.json();
        
