@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
+import { signIn } from "next-auth/react";
 
 import {
     SubmitHandler,
@@ -114,12 +115,12 @@ const RegisterModal= () => {
             icon={FcGoogle}
             onClick={() => signIn('google')} 
           />
-          <Button 
+          {/* <Button 
             outline 
             label="Continue with Github"
             icon={AiFillGithub}
             onClick={() => signIn('github')}
-          />
+          /> */}
           <div 
             className="
               text-neutral-500 
