@@ -50,8 +50,8 @@ export const authOptions = {
     async signIn({ account, profile }) {
 		if (account.provider === 'google'){
 
-			console.log("signIn callback account", account);
-			console.log("signIn callback profile", profile);
+			//console.log("signIn callback account", account);
+			//console.log("signIn callback profile", profile);
 
 			//assert if  user exists in our custom DB
 			const response = await axios.post(
@@ -71,8 +71,8 @@ export const authOptions = {
 				img: profile.picture,
 				};
 
-				console.log(data);
-				await axios.post("http://localhost:5000/api/register", data);
+				//console.log(data);
+				await axios.post("http://localhost:5000/api/register-oauth", data);
 				// retruns true thereby passing control to the next callback
 				return true;
 			}
