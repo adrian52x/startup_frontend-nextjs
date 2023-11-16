@@ -12,25 +12,28 @@ export default async function getCurrentUser() {
   try {
     const session = await getSession();
 
+    //console.log("session getCurrentUser", session);
+
+    
+
     if (!session?.user?.email) {
       return null;
+    } else {
+
+        if (!session?.user?.registerMethod) {
+            const url = `http://localhost:5000/api/user/${session?.user?.email}`;
+            const response = await fetch(url, { cache: 'no-store' });
+
+            if (!response.ok) {
+                return null;
+            }
+        
+            const user = await response.json();
+            return user;
+        }
+
+        return session?.user;
     }
-
-    // const currentUser = await prisma.user.findUnique({
-    //   where: {
-    //     email: session.user.email as string,
-    //   }
-    // });
-
-    // if (!currentUser) {
-    //   return null;
-    // }
-
-    // return currentUser;
-
-   //console.log("currentUser", session.user);
-
-   return session.user;
 
   } catch (error) {
     return null;

@@ -45,6 +45,7 @@ export default async function getMentors(params) {
       return mentors;
 
     } catch (error) {
-      throw new Error(error);
+      return null;
+      //throw new Error(error);
     }
   }

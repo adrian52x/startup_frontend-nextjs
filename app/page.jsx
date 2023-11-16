@@ -9,7 +9,7 @@ export default async function Home({ searchParams }) {
     const mentors = await getMentors(searchParams);
     console.log("searchParams", searchParams);
 
-    if(mentors.length === 0){
+    if(mentors?.length === 0 || mentors === null){
         return (
 
             <EmptyState showReset/>
