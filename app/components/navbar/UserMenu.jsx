@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
@@ -12,6 +13,7 @@ import { signOut } from "next-auth/react";
 //import { useSession } from "next-auth/react";
 
 const UserMenu = ({ currentUser }) => {
+    const router = useRouter();
     //const { data: session, status } = useSession();
 
     const registerModal = useRegisterModal();
@@ -48,7 +50,7 @@ const UserMenu = ({ currentUser }) => {
                             <MenuItem label={currentUser.email}/>
                             <MenuItem label={currentUser.firstName + ' ' + currentUser.lastName}/>
                             <MenuItem label="Profile" onClick={() => router.push('/profile')}/>
-                            <MenuItem label="My sessions" onClick={() => router.push('/sessions')}/>
+                            <MenuItem label="My meetings" onClick={() => router.push('/meetings')}/>
                             <MenuItem label="Messages" onClick={() => router.push('/messages')}/>
                             <hr />
                             <MenuItem label="Logout" onClick={() => signOut()}/>
