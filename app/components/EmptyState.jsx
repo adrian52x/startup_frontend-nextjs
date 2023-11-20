@@ -16,7 +16,7 @@ const EmptyState = ({
   return ( 
     <div 
       className="
-        h-[100vh]
+        h-[70vh]
         flex 
         flex-col 
         gap-2 

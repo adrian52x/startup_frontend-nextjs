@@ -7,7 +7,7 @@ import { AiFillStar } from "react-icons/ai";
 import Container from "@/app/components/Container";
 import Button from '@/app/components/Button';
 
-const MentorClient = ({mentor, reservations = [],currentUser}) => { 
+const MentorClient = ({mentor, currentUser, reservations = []}) => { 
 
     const timeFrames = [
         '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30',
@@ -22,18 +22,38 @@ const MentorClient = ({mentor, reservations = [],currentUser}) => {
         console.log("selectedDate", date);
     };
 
-    const createBooking = (mentor, date, time) => {
+    const createBooking = async (mentor, date, time) => {
         const status = "pending";
 
         let body = {
-            receiver: mentor.email,
-            sender: "mentor3@gmail.com",
+            receiver: mentor._id,
+            sender: currentUser._id,
             date: date,
             time: time,
             status: status
         }
         
         console.log(body);
+
+        try {
+            const response = await fetch('http://localhost:5000/api/meetings', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(body),
+            });
+        
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+        
+            const meeting = await response.json();
+        
+            console.log(meeting);
+          } catch (error) {
+            console.error('Failed to create booking:', error);
+          }
     }
 
     return (

@@ -1,4 +1,4 @@
-export default async function getReservations(params) {
+export default async function getMeetings(params) {
     try {
       const { meetingId, senderId, receiverId } = params;
   
@@ -20,8 +20,10 @@ export default async function getReservations(params) {
       let url = null;
 
     if (JSON.stringify(query) === '{}') {
+        console.log("meetings - empty");
         url = `http://localhost:5000/api/meetings`;
     } else {
+        console.log("meetings - not empty");
         url = `http://localhost:5000/api/meetings?${queryString}`;
     }
 
