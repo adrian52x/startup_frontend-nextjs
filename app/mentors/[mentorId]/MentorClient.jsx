@@ -7,6 +7,8 @@ import { AiFillStar } from "react-icons/ai";
 import Container from "@/app/components/Container";
 import Button from '@/app/components/Button';
 
+import { DatePicker } from "@tremor/react";
+
 const MentorClient = ({mentor, currentUser, reservations = []}) => { 
 
     const timeFrames = [
@@ -92,13 +94,14 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
 
             <h2 className="text-2xl font-bold mb-4">Book a Session</h2>
 
-            <div className='flex flex-col gap-10 justify-center sm:flex-row sm:justify-start'>
-                <Calendar
+            <div className='flex flex-col gap-10 justify-center sm:flex-row sm:justify-start flex-wrap '>
+            <DatePicker className="max-w-sm " enableClear={false} defaultValue={selectedDate} onValueChange={handleDateChange} minDate={new Date(Date.now() + 86400000)}/>
+                {/* <Calendar
                 value={selectedDate}
                 onChange={handleDateChange}
-                />
+                /> */}
 
-                {selectedDate && (<div className=" grid grid-cols-4 gap-4 max-h-60 sm:col-span-1">
+                {selectedDate && (<div className=" grid grid-cols-4 gap-4 sm:col-span-1">
                         {timeFrames.map((time, index) => (
                         <div
                             onClick={() => setSelectedTime(time)}
