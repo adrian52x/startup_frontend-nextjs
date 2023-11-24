@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 
-const Avatar = ({ src }) => {
+const Avatar = ({ src , width = 30, height = 30 }) => {
   return ( 
     <Image 
       className="rounded-full" 
-      height="30" 
-      width="30" 
+      height={height}
+      width={width}
       alt="Avatar" 
       src={src || '/images/placeholder.jpg'}
     />

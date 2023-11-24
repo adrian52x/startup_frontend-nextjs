@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useEffect, useRef } from 'react';
 
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
@@ -21,9 +22,26 @@ const UserMenu = ({ currentUser }) => {
 
     const [isOpen, setIsOpen] = useState(false);
 
+    const menuItemsRef = useRef();
+    const menuRef = useRef();
+
     const toggleOpen = useCallback(() => {
         setIsOpen((value) => !value);
       }, []);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+          if (menuItemsRef.current && !menuItemsRef.current.contains(event.target) &&
+            (!menuRef.current || !menuRef.current.contains(event.target))) {
+            setIsOpen(false);
+          }
+        };
+    
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);  
 
     return ( 
         <div className="relative">
@@ -32,7 +50,7 @@ const UserMenu = ({ currentUser }) => {
                     Share your experience
                 </div>
 
-                <div onClick={toggleOpen} className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition">
+                <div onClick={toggleOpen} ref={menuRef} className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition">
                     <AiOutlineMenu />
                     <div className="hidden md:block">
                         <Avatar src={currentUser?.image || currentUser?.img} />
@@ -44,10 +62,9 @@ const UserMenu = ({ currentUser }) => {
 
             {isOpen && (
                 <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
-                    <div className="flex flex-col cursor-pointer">
+                    <div ref={menuItemsRef} className="flex flex-col cursor-pointer">
                         {currentUser ? (
                         <>
-                            <MenuItem label={currentUser.email}/>
                             <MenuItem label={currentUser.firstName + ' ' + currentUser.lastName}/>
                             <MenuItem label="Profile" onClick={() => router.push('/profile')}/>
                             <MenuItem label="My sessions" onClick={() => router.push('/meetings')}/>

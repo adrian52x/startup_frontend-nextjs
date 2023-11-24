@@ -28,7 +28,7 @@ export default async function RootLayout({ children }) {
             <Navbar currentUser = {currentUser}/>
             
            
-            <div className="pb-20 pt-28">
+            <div className="pt-24">
               {children}
             </div>
           </Providers>

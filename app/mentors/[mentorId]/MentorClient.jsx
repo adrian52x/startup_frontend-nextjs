@@ -103,13 +103,13 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
 
                 {selectedDate && (<div className=" grid grid-cols-4 gap-4 sm:col-span-1">
                         {timeFrames.map((time, index) => (
-                        <div
+                        <Button label={time} outline={selectedTime !== time} small
                             onClick={() => setSelectedTime(time)}
                             key={index}
-                            className={`${selectedTime === time ? 'bg-blue-700' : ''} bg-gray-400 text-white text-center p-4 hover:bg-blue-400 cursor-pointer`}
+                            //className={`${selectedTime === time ? 'bg-blue-700' : ''} bg-gray-400 text-white text-center p-4 hover:bg-blue-400 cursor-pointer`}
                         >
                             {time}
-                        </div>
+                        </Button>
                         ))}
                 </div>)}
 

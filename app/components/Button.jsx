@@ -21,6 +21,7 @@ const Button = ({
         rounded-lg
         hover:opacity-80
         transition
+        px-1
         ${customWidth || 'w-full'}
         ${outline ? 'bg-white' : 'bg-rose-500'}
         ${outline ? 'border-black' : 'border-rose-500'}
