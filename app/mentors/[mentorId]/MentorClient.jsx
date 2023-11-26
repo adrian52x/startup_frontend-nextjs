@@ -1,11 +1,10 @@
 'use client'
 
 import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
 import { AiFillStar } from "react-icons/ai";
-import Container from "@/app/components/Container";
 import Button from '@/app/components/Button';
+import { toast } from "react-hot-toast";
+
 
 import { DatePicker } from "@tremor/react";
 
@@ -21,10 +20,15 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
-        console.log("selectedDate", date);
     };
 
     const createBooking = async (mentor, date, time) => {
+        if (!currentUser) { 
+            toast.error('You must be logged in to book a session');
+            return;
+        }
+        
+
         const status = "pending";
 
         let body = {
@@ -35,7 +39,7 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
             status: status
         }
         
-        console.log(body);
+        //console.log(body);
 
         try {
             const response = await fetch('http://localhost:5000/api/meetings', {
@@ -49,27 +53,31 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
             }
+
+            if(response.ok) {
+                toast.success('Booking created successfully');
+            }
         
             const meeting = await response.json();
         
-            console.log(meeting);
+            //console.log(meeting);
           } catch (error) {
             console.error('Failed to create booking:', error);
           }
     }
 
     return (
-        <Container>
+        <div className='w-full max-w-5xl mx-auto'>
         
-        <section className="my-8 shadow-lg p-4">
+        <section className="my-8 shadow-lg p-4 rounded-lg">
             <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2 sm:col-span-1">
-                    <div className="flex items-center mb-4">
-                        <img src={'/images/placeholder.jpg'} alt="Mentor Photo" className="w-16 h-16 rounded-full mr-4" />
+                    <div className="flex items-center mb-4 ">
+                        <img src={mentor.img ? mentor.img : '/images/placeholder.jpg'} alt="Mentor Photo" className="w-16 h-16 rounded-full mr-4 " />
                             <div>
                                 <h2 className="text-xl font-bold">{mentor.firstName} {mentor.lastName}</h2>
                                 <p className="text-gray-500">{mentor.email}</p>
-                                <p className="text-gray-500 italic">{mentor.category.join(", ")}</p>
+                                <code className="text-gray-500 italic">{mentor.profession}</code>
                             </div>
                     </div>
                     <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, sapien eu fringilla fringilla, lectus justo finibus orci, ac tincidunt elit turpis eu mi.
@@ -83,19 +91,20 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                 </div>
                 <div className="col-span-2 sm:col-span-1">
                     <div className="aspect-w-16 aspect-h-9">
-                        <iframe src="https://www.youtube.com/embed/p2vpqKBPj4U" title="Mentor Video" className="w-full h-96  rounded-lg" allowFullScreen>
+                        <iframe src="https://www.youtube.com/embed/p2vpqKBPj4U" title="Mentor Video" className="w-full h-80  rounded-lg" allowFullScreen>
                         </iframe>                    
                     </div>
                 </div>
             </div>
         </section>
 
-        <section className="my-8 shadow-lg p-4">
+        <section className="my-8 shadow-lg p-4 rounded-lg">
 
             <h2 className="text-2xl font-bold mb-4">Book a Session</h2>
 
             <div className='flex flex-col gap-10 justify-center sm:flex-row sm:justify-start flex-wrap '>
-            <DatePicker className="max-w-sm " enableClear={false} defaultValue={selectedDate} onValueChange={handleDateChange} minDate={new Date(Date.now() + 86400000)}/>
+            <DatePicker className="max-w-xs " 
+                enableClear={false} defaultValue={selectedDate} onValueChange={handleDateChange} minDate={new Date(Date.now() + 86400000)} />
                 {/* <Calendar
                 value={selectedDate}
                 onChange={handleDateChange}
@@ -114,8 +123,12 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                 </div>)}
 
                 {(selectedDate && selectedTime) &&(<div className="space-y-2 sm:col-span-1">
-                   <h2>Selected date: {selectedDate.toDateString()}</h2>
-                   <h2>Selected time: {selectedTime}</h2>
+                    <p className='text-neutral-500'>Selected date: 
+                        <strong> {selectedDate.toDateString()}</strong>
+                    </p>
+                    <p className='text-neutral-500'>Selected time: 
+                        <strong> {selectedTime}</strong>
+                    </p>
                    <Button
                         customWidth={"w-3/5"}
                         label="Book now"
@@ -127,7 +140,7 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
             </div>
         </section>
 
-        <section className="my-8 shadow-lg p-4">
+        <section className="my-8 shadow-lg p-4 rounded-lg">
             <h2 className="text-2xl font-bold mb-4 flex items-center">
                 <AiFillStar size={20}/>
                 4.86
@@ -177,7 +190,7 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
    
 
 
-        </Container> 
+        </div> 
     )
 
 }

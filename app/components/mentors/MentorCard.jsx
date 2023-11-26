@@ -57,6 +57,7 @@ const MentorCard = ({
 //     return `${format(start, 'PP')} - ${format(end, 'PP')}`;
 //   }, [reservation]);
 
+
   return (
     <div 
       onClick={() => router.push(`/mentors/${data._id}`)} 
@@ -88,7 +89,7 @@ const MentorCard = ({
                     30 min -
                   </p> 
                   <div className="font-semibold">
-                      10$
+                      {data.price ? data.price : "N/A"} €
                   </div>
                 </div>
             

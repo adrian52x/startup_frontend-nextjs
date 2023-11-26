@@ -5,7 +5,7 @@ import MeetingBox from "./MeetingBox";
 
 
 const MeetingList = ({  meetings }) => {
-    console.log(meetings);
+    //console.log(meetings);
   return ( 
     
     <aside className="

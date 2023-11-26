@@ -7,6 +7,7 @@ import ToasterProvider from './components/ToasterProvider';
 import LoginModal from './components/modals/LoginModal';
 import Providers from './components/Providers';
 import getCurrentUser from './actions/getCurrentUser';
+import GuidelinesModal from './components/modals/GuidelinesModal';
 
 
 const font = Inter({ subsets: ['latin'] })
@@ -25,6 +26,7 @@ export default async function RootLayout({ children }) {
             <ToasterProvider/>
             <RegisterModal/>
             <LoginModal/>
+            <GuidelinesModal/>
             <Navbar currentUser = {currentUser}/>
             
            

@@ -67,8 +67,7 @@ export const authOptions = {
 				const data = {
 				firstName: profile.given_name || " ",
 				lastName: profile.family_name || " ",
-				email: profile.email,
-				img: profile.picture,
+				email: profile.email
 				};
 
 				//console.log(data);

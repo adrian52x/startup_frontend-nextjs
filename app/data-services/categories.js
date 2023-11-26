@@ -3,6 +3,17 @@ import { FaUserDoctor } from "react-icons/fa6";
 import { MdOutlineWork } from "react-icons/md";
 import { VscLaw } from "react-icons/vsc";
 import { HiMiniComputerDesktop } from "react-icons/hi2";
+import { AiFillBank } from "react-icons/ai";
+import { CiImageOn } from "react-icons/ci";
+import { GiPencilBrush } from "react-icons/gi";
+import { FaTheaterMasks } from "react-icons/fa";
+import { FaBook } from "react-icons/fa6";
+import { IoCameraSharp } from "react-icons/io5";
+import { HiOutlineNewspaper } from "react-icons/hi2";
+import { GiBrain } from "react-icons/gi";
+import { GiTravelDress } from "react-icons/gi";
+import { IoMusicalNotesSharp } from "react-icons/io5";
+import { FaVolleyballBall } from "react-icons/fa";
 
 
 
@@ -23,8 +34,8 @@ const categories = [
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Business',
-    icon : MdOutlineWork,
+    label : 'Graphic Design',
+    icon : CiImageOn ,
     description : 'These mentors operate in the law field'
   },
   {
@@ -33,53 +44,53 @@ const categories = [
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Text3',
-    icon : MdOutlineWork,
+    label : 'Acting',
+    icon : FaTheaterMasks,
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Text4',
-    icon : MdOutlineWork,
+    label : 'Psychology',
+    icon : GiBrain,
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Text5',
-    icon : MdOutlineWork,
+    label : 'Visual Arts',
+    icon : GiPencilBrush,
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Text6',
-    icon : MdOutlineWork,
+    label : 'Education',
+    icon : FaBook,
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Text7',
-    icon : MdOutlineWork,
+    label : 'Fashion',
+    icon : GiTravelDress,
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Text8',
-    icon : MdOutlineWork,
+    label : 'Sports',
+    icon : FaVolleyballBall,
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Text9',
-    icon : MdOutlineWork,
+    label : 'Music',
+    icon : IoMusicalNotesSharp,
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Text10',
-    icon : MdOutlineWork,
+    label : 'Finance',
+    icon : AiFillBank,
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Text11',
-    icon : MdOutlineWork,
+    label : 'Jurnalisim',
+    icon : HiOutlineNewspaper,
     description : 'These mentors operate in the law field'
   },
   {
-    label : 'Text12',
-    icon : MdOutlineWork,
+    label : 'Photography',
+    icon : IoCameraSharp,
     description : 'These mentors operate in the law field'
   }
 ]

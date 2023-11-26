@@ -2,7 +2,6 @@
 import EmptyState from "../components/EmptyState";
 
 
-
 const MentoringPage = async () => {
   
 		return (
@@ -12,6 +11,7 @@ const MentoringPage = async () => {
 				subtitle="Select a reservation to view more details"
 				/>
 			</div>
+
 		)
 
 }
