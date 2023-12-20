@@ -9,20 +9,21 @@ import Heading from "./Heading";
 const EmptyState = ({
   title = "No exact matches",
   subtitle = "Try changing or removing some of your filters.",
-  showReset
+  showReset,
+  customHeight,
 }) => {
   const router = useRouter();
 
   return ( 
     <div 
-      className="
-        h-[70vh]
+      className={`
+        ${customHeight || 'h-[70vh]'}
         flex 
         flex-col 
         gap-2 
         justify-center 
         items-center 
-      "
+      `}
     >
       <Heading
         center

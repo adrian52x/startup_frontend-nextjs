@@ -58,7 +58,7 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                 toast.success('Booking created successfully');
             }
         
-            const meeting = await response.json();
+            //const meeting = await response.json();
         
             //console.log(meeting);
           } catch (error) {

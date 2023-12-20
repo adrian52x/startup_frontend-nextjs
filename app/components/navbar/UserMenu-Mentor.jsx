@@ -13,7 +13,7 @@ import useLoginModal from "@/app/hooks/useLoginModal";
 import { signOut } from "next-auth/react";
 //import { useSession } from "next-auth/react";
 
-const UserMenu = ({ currentUser }) => {
+const UserMenuMentor = ({ currentUser }) => {
     const router = useRouter();
     //const { data: session, status } = useSession();
 
@@ -44,20 +44,8 @@ const UserMenu = ({ currentUser }) => {
     }, []);  
 
     return ( 
-        <div className="relative">
-            <div className="flex flex-row items-center gap-3">
-            <div 
-                onClick={() => {
-                    if (currentUser) {
-                        router.push(currentUser.isMentor ? '/mentor-dashboard' : '/getting-started');
-                    } else {
-                        loginModal.onOpen();
-                    }
-                }} 
-                className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
-                >
-                {currentUser?.isMentor ? 'Mentor Dashboard' : 'Share your experience'}
-            </div>
+        <div className="relative ">
+            
 
                 <div onClick={toggleOpen} ref={menuRef} className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition">
                     <AiOutlineMenu />
@@ -67,19 +55,19 @@ const UserMenu = ({ currentUser }) => {
                     
                 </div>
 
-            </div>
+            
 
             {isOpen && (
-                <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
+                <div className="absolute rounded-xl shadow-md w-[200px] bg-white overflow-hidden right-0 top-12 text-sm">
                     <div ref={menuItemsRef} className="flex flex-col cursor-pointer">
                         {currentUser ? (
                         <>
-                            <MenuItem label="Account" onClick={() => router.push('/profile')}/>
+                            <MenuItem label="Mentor profile" onClick={() => router.push('/profile')}/>
+                            <MenuItem label="Account" />
                             <MenuItem label="Messages" onClick={() => router.push('/messages')}/>
-                            <MenuItem label="My sessions" onClick={() => router.push('/meetings')}/>
-                            
                             <hr />
                             <MenuItem label="Help Center" />
+                            <MenuItem label="Switch to ..?" />
                             <hr />
                             <MenuItem label="Logout" onClick={() => signOut({ callbackUrl: '/' })}/>
                         </>
@@ -104,4 +92,4 @@ const UserMenu = ({ currentUser }) => {
     );
   }
    
-  export default UserMenu;
+  export default UserMenuMentor;
