@@ -74,9 +74,10 @@ const UserMenu = ({ currentUser }) => {
                     <div ref={menuItemsRef} className="flex flex-col cursor-pointer">
                         {currentUser ? (
                         <>
-                            <MenuItem label="Account" onClick={() => router.push('/profile')}/>
-                            <MenuItem label="Messages" onClick={() => router.push('/messages')}/>
+                            <MenuItem label={currentUser.firstName + ' ' + currentUser.lastName}/>
+                            <MenuItem label="Profile" onClick={() => router.push(`/users/${currentUser._id}`)}/>
                             <MenuItem label="My sessions" onClick={() => router.push('/meetings')}/>
+                            <MenuItem label="Messages" onClick={() => router.push('/messages')}/>
                             
                             <hr />
                             <MenuItem label="Help Center" />
