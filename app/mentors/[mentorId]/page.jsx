@@ -5,7 +5,6 @@ import MentorClient from "./MentorClient";
 
 
 const MentorPage = async ({ params }) => {
-
     const currentUser = await getCurrentUser();
     const mentor = await getMentorById(params);
   

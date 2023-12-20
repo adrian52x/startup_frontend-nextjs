@@ -21,7 +21,7 @@ export default async function getCurrentUser() {
     } else {
 
         if (!session?.user?.registerMethod) {
-            const url = `http://localhost:5000/api/user/${session?.user?.email}`;
+            const url = `http://localhost:5000/api/user/email/${session?.user?.email}`;
             const response = await fetch(url, { cache: 'no-store' });
 
             if (!response.ok) {
