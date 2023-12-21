@@ -67,7 +67,7 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
     }
 
     return (
-        <div className='w-full max-w-5xl mx-auto'>
+        <div className='w-full max-w-[1440px] md:mx-auto lg:px-20 md:px-10 sm:px-6'>
         
         <section className="my-8 shadow-lg p-4 rounded-lg">
             <div className="grid grid-cols-2 gap-4">

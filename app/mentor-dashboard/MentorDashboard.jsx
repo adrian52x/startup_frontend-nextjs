@@ -35,19 +35,19 @@ const MentorDashboard = ({meetings, currentUser}) => {
             content: <div>Completed content</div>,
             emptyState: "You currently don't have any completed meetings."
         },
-    };
+    }; 
 
     return (
         <div className="w-full max-w-[1440px] md:mx-auto lg:px-20 md:px-10 sm:px-6 "> 
 				<div className="text-3xl pt-[64px]">Welcome, {currentUser.firstName}!</div>
 				<div className="py-[64px] space-y-6">
 					<div className="text-xl">Your meetings</div>
-					<div className="flex items-center space-x-2 max-w-[1280px]">
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-2 min-w-[250px] max-w-[300px] md:max-w-[600px]"> 
                         {tabs.map(tab => (
                             <div
                                 key={tab}
                                 onClick={() => setSelectedTab(tab)}
-                                className={`${selectedTab === tab ? 'border-black bg-neutral-100' : 'border-neutral-300'} border rounded-full py-2 px-4 hover:border-black transition cursor-pointer`}
+                                className={`${selectedTab === tab ? 'border-black bg-neutral-100' : 'border-neutral-300'}  border rounded-full py-2 px-4 hover:border-black transition cursor-pointer`}
                             >
                                 {tab} ({meetingsCount[tab].length})
                             </div>
