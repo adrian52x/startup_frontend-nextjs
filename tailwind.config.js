@@ -74,6 +74,8 @@ module.exports = {
         },
       },
       boxShadow: {
+        '2xfull': '0 25px 50px -12px rgba(0, 0, 0, 0.15), -10px 0 20px -3px rgba(0, 0, 0, 0.07), 10px 0 20px -3px rgba(0, 0, 0, 0.07)',
+        'full': '0 10px 15px -3px rgba(0, 0, 0, 0.1), -5px 0 10px -2px rgba(0, 0, 0, 0.05), 5px 0 10px -2px rgba(0, 0, 0, 0.05)',
         // light
         "tremor-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
         "tremor-card": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
@@ -84,6 +86,7 @@ module.exports = {
         "dark-tremor-dropdown": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
       },
       borderRadius: {
+        '3xl': '1.5rem',
         "tremor-small": "0.375rem",
         "tremor-default": "0.5rem",
         "tremor-full": "9999px",
