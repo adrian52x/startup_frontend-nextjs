@@ -13,7 +13,7 @@ const AboutUser = ({user}) => {
                     C
                     <br />
                     Text
-                    <br />
+                    <br /> <br /> <br /> <br /> <br />  <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
                     Text
                 </div>
             </div>

@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 
 
 import { DatePicker } from "@tremor/react";
+import Avatar from '@/app/components/Avatar';
 
 const MentorClient = ({mentor, currentUser, reservations = []}) => { 
 
@@ -69,12 +70,12 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
     return (
         <div className='w-full max-w-[1440px] md:mx-auto lg:px-20 md:px-10 sm:px-6'>
         
-        <section className="my-8 shadow-lg p-4 rounded-lg">
+        <section className="my-8 shadow-full p-4 rounded-xl">
             <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2 sm:col-span-1">
                     <div className="flex items-center mb-4 ">
-                        <img src={mentor.img ? mentor.img : '/images/placeholder.jpg'} alt="Mentor Photo" className="w-16 h-16 rounded-full mr-4 " />
-                            <div>
+                        <Avatar src={mentor.img} width={64} height={64} />
+                            <div className='ml-4'>
                                 <h2 className="text-xl font-bold">{mentor.firstName} {mentor.lastName}</h2>
                                 <p className="text-gray-500">{mentor.email}</p>
                                 <code className="text-gray-500 italic">{mentor.profession}</code>
@@ -98,7 +99,7 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
             </div>
         </section>
 
-        <section className="my-8 shadow-lg p-4 rounded-lg">
+        <section className="my-8 shadow-full p-4 rounded-xl">
 
             <h2 className="text-2xl font-bold mb-4">Book a Session</h2>
 
@@ -140,7 +141,7 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
             </div>
         </section>
 
-        <section className="my-8 shadow-lg p-4 rounded-lg">
+        <section className="my-8 shadow-full p-4 rounded-xl">
             <h2 className="text-2xl font-bold mb-4 flex items-center">
                 <AiFillStar size={20}/>
                 4.86
