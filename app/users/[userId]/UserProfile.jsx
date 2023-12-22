@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive'
 
 import UserCard from '@/app/components/profile-components/UserCard';
@@ -9,7 +9,13 @@ import AboutUser from '@/app/components/profile-components/AboutUser';
 
 
 const UserProfile = ({user}) => { 
-    const isSmallScreen = useMediaQuery({ query: '(max-width: 768px)' })
+    //const isSmallScreen = useMediaQuery({ query: '(max-width: 768px)' })
+
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    useEffect(() => {
+        // This code will run only on the client, after the component has mounted
+        setIsSmallScreen(window.innerWidth <= 640);
+    }, []);
 
     return (
         // <div className='w-full max-w-[1440px] md:mx-auto lg:px-20 md:px-10 sm:px-6'>
