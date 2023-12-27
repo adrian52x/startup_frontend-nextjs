@@ -13,11 +13,7 @@ const PendingMeetings = ({meetings}) => {
 
     const [selectedMeeting, setSelectedMeeting] = useState(null);
 
-    const log = () => {
-        console.log("clicked");
-    }
-
-    const handleClick = (meetingId) => {
+    const handleClick = useCallback((meetingId) => {
         setSelectedMeeting(meetingId);
         let currentQuery = {};
     
@@ -36,27 +32,39 @@ const PendingMeetings = ({meetings}) => {
             setSelectedMeeting(null);
         }
 
-        // const url = qs.stringifyUrl({
-        // url: '/mentor-dashboard',
-        // query: updatedQuery
-        // }, { skipNull: true });
+        const url = qs.stringifyUrl({
+        url: '/mentor-dashboard',
+        query: updatedQuery
+        }, { skipNull: true });
 
-        // router.push(url);
-    }
+        router.push(url);
+    }, [router, params]);
 
     return (
         <>
+        {/* {selectedMeeting && (
+            <div className="space-x-2">
+                <button className="bg-green-500 text-white px-3 py-1 rounded-3xl">Accept</button>
+                <button className="bg-red-500 text-white px-3 py-1 rounded-3xl">Decline</button>
+
+                <input className="w-[200px] px-3 py-2 mt-4 border rounded" type="text" placeholder="Add a note" />
+
+                <input className="w-[200px] px-3 py-2 mt-4 border rounded" type="text" placeholder="Google Meet link" required />
+                        
+            </div>
+            
+        )} */}
+        
             <div className="grid md:grid-cols-3  grid-cols-1 gap-4">
             {meetings
-                
+                .sort((a, b) => (a._id === params.get('pending') ? -1 : b._id === params.get('pending') ? 1 : 0))
                 .map((meeting) => (
 
                 <div key={meeting._id}
-                    //onClick={() => { handleClick(meeting._id) }}
-                    className={`${meeting._id === selectedMeeting ? 'h-[150px] -translate-y-2   duration-500 ease-in-out' : 'bg-white'} w-full relative items-center p-3 shadow-lg  rounded-lg transition cursor-pointer border `}
+                    onClick={() => { handleClick(meeting._id) }}
+                    className={`${meeting._id === params.get('pending') ? 'h-[200px] -translate-y-2 md:col-span-3 md:flex bg-slate-200 duration-500 ease-in-out' : 'bg-white'} w-full relative items-center p-3 shadow-lg  rounded-lg transition cursor-pointer border `}
                 >
-                    <div onClick={() => { handleClick(meeting._id) }}
-                    className="flex-1 flex items-center space-x-1">
+                    <div className="flex-1 flex items-center space-x-8">
                         <Avatar src={meeting.sender.img} width={70} height={55} />
                         <div className="min-w-0 flex-1">
                             <div className="focus:outline-none">
@@ -96,13 +104,13 @@ const PendingMeetings = ({meetings}) => {
                         </div>
                     </div>
                             
-                    {meeting._id === selectedMeeting && ( 
-                    <div className="flex-1 pt-5 md:pt-10">
+                    {meeting._id === params.get('pending') && (
+                    <div className="flex-1 pt-5 md:pt-0">
                         <div className="space-x-2">
-                            <button  onClick={() => log()} className="bg-green-500 text-white px-3 py-1 rounded-3xl">Accept</button>
-                            <button onClick={() => log()} className="bg-red-500 text-white px-3 py-1 rounded-3xl">Decline</button>
+                            <button className="bg-green-500 text-white px-3 py-1 rounded-3xl">Accept</button>
+                            <button className="bg-red-500 text-white px-3 py-1 rounded-3xl">Decline</button>
 
-                            <input onClick={() => log()} className="w-[200px] px-3 py-2 mt-4 border rounded" type="text" placeholder="Add a note" />
+                            <input className="w-[200px] px-3 py-2 mt-4 border rounded" type="text" placeholder="Add a note" />
 
                             <input className="w-[200px] px-3 py-2 mt-4 border rounded" type="text" placeholder="Google Meet link" required />
                                     

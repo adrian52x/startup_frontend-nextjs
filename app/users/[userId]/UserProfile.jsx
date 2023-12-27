@@ -9,27 +9,17 @@ import AboutUser from '@/app/components/profile-components/AboutUser';
 
 
 const UserProfile = ({user}) => { 
-    //const isSmallScreen = useMediaQuery({ query: '(max-width: 768px)' })
+    //const isSmallScreen = useMediaQuery({ query: '(max-width: 768px)' });
 
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const isSmall = useMediaQuery({ query: '(max-width: 768px)' });
+    const [smallScreenMode, setSmallScreenMode] = useState(false);
     useEffect(() => {
-        // This code will run only on the client, after the component has mounted
-        setIsSmallScreen(window.innerWidth <= 640);
-    }, []);
+        setSmallScreenMode(isSmall);
+    }, [isSmall]);
 
     return (
-        // <div className='w-full max-w-[1440px] md:mx-auto lg:px-20 md:px-10 sm:px-6'>
-        //     <div>
-        //         {user.firstName} {user.lastName}
-        //     </div>
-        //     <div>       
-        //         {user.email}
-        //     </div>
-   
-        // </div> 
-
-
-        isSmallScreen ? (
+        
+        smallScreenMode ? (
             <section className='mt-10'>
                 <div className='max-w-[400px] md:max-w-[1440px] mx-auto grid grid-cols-1'>
                 <div className='max-w-[400px] h-[250px]'>
