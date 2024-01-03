@@ -7,6 +7,8 @@ const Button = ({
   disabled, 
   outline,
   small,
+  acceptBtn,
+  declineBtn,
   icon: Icon,
   customWidth,
 }) => {
@@ -30,6 +32,8 @@ const Button = ({
         ${small ? 'py-1' : 'py-3'}
         ${small ? 'font-light' : 'font-semibold'}
         ${small ? 'border-[1px]' : 'border-2'}
+        ${acceptBtn ? 'hover:bg-green-100' : ''}
+        ${declineBtn ? 'hover:bg-red-100' : ''}
       `}
     >
       {Icon && (

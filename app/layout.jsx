@@ -8,6 +8,7 @@ import LoginModal from './components/modals/LoginModal';
 import Providers from './components/Providers';
 import getCurrentUser from './actions/getCurrentUser';
 import GuidelinesModal from './components/modals/GuidelinesModal';
+import AcceptMeetingModal from './components/modals/acceptMeetingModal';
 
 
 const font = Inter({ subsets: ['latin'] })
@@ -27,6 +28,7 @@ export default async function RootLayout({ children }) {
             <RegisterModal/>
             <LoginModal/>
             <GuidelinesModal/>
+            <AcceptMeetingModal/>
             <Navbar currentUser = {currentUser}/>
             
            
