@@ -162,7 +162,7 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                     <span className="text-gray-500">- August 25, 2023</span>
                     </div>
                     <p className="text-gray-700 mb-2">
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, sapien eu fringilla fringilla, lectus justo finibus orci, ac tincidunt elit turpis eu mi."
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, sapien eu fringilla fringilla, lectus justo finibus orci, ac tincidunt elit turpis eu mi.
                     </p>
                 </div>
             </div>
@@ -181,7 +181,7 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                     <span className="text-gray-500">- July 1, 2023</span>
                     </div>
                     <p className="text-gray-700 mb-2">
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, sapien eu fringilla fringilla, lectus justo finibus orci, ac tincidunt elit turpis eu mi."
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, sapien eu fringilla fringilla, lectus justo finibus orci, ac tincidunt elit turpis eu mi.
                     </p>
                 </div>
             </div>

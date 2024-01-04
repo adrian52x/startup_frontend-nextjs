@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 
 import { useRouter } from "next/navigation";
@@ -17,7 +17,7 @@ import { LuAsterisk } from "react-icons/lu";
 
 
 const AcceptMeetingModal = () => {
-  //const router = useRouter();
+  	const router = useRouter();
 	const acceptMeetingModal = useAcceptMeetingModal();
 	const meetingId = acceptMeetingModal.meetingId;
 
@@ -26,6 +26,12 @@ const AcceptMeetingModal = () => {
   	const [link, setLink] = useState('');
 	const [note, setNote] = useState('');
 	const [linkError, setLinkError] = useState(false);
+
+	useEffect(() => {
+		// Reset the states when the meetingId changes
+		setLink('');
+		setNote('');
+	}, [meetingId]);
 
 
 	const handleConfirm = () => {
@@ -52,6 +58,7 @@ const AcceptMeetingModal = () => {
 			acceptMeetingModal.onClose();
 			console.log(data);
 			acceptMeetingModal.actionTakenOnMeeting(meetingId); // Mark an action as taken
+			router.refresh();
 		})
 		.catch(error => {
 		  // Handle the error
