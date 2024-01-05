@@ -106,36 +106,3 @@ export const authOptions = {
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
-
-// export default NextAuth({
-//      providers: [
-//       CredentialsProvider({
-//          name: 'Credentials',
-//          credentials: {
-//            email: { label: 'Email', type: 'email' },
-//            password: { label: 'Password', type: 'password' },
-//          },
-//          authorize: async (credentials) => {
-//             const payload = {
-//               email: credentials.email,
-//               password: credentials.password,
-//             };
-//             // Call your external API here to validate the credentials and generate a JWT
-//             const response = await fetch('http://localhost:5000/api/login', {
-//               method: 'POST',
-//               body: JSON.stringify(payload),
-//               headers: { 'Content-Type': 'application/json' },
-//             });
-
-//             const data = await response.json();
-//             console.log("data login", data);
-
-//            if (response.ok && data.jwt) {
-//              return Promise.resolve({ id: data.id, email: data.email, jwt: data.jwt });
-//            } else {
-//              return Promise.reject(new Error('Invalid credentials'));
-//            }
-//          },
-//        }),
-//      ],
-// });

@@ -8,6 +8,7 @@ import { toast } from "react-hot-toast";
 
 import { DatePicker } from "@tremor/react";
 import Avatar from '@/app/components/Avatar';
+import CheckoutButton from '@/app/components/checkout/index.jsx';
 
 const MentorClient = ({mentor, currentUser, reservations = []}) => { 
 
@@ -136,6 +137,7 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                         small
                         onClick={() => createBooking(mentor, selectedDate, selectedTime)}  >
                    </Button>
+                   <CheckoutButton amount={10} />
                 </div>)}
 
             </div>

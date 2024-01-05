@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^2.4.0",
+    "@stripe/stripe-js": "^2.2.2",
     "@tremor/react": "^3.11.1",
     "axios": "^1.6.0",
     "next": "^14.0.3",
@@ -22,6 +24,7 @@
     "react-icons": "^4.11.0",
     "react-responsive": "^9.0.2",
     "sass": "^1.69.0",
+    "stripe": "^14.11.0",
     "zustand": "^4.4.5"
   },
   "devDependencies": {

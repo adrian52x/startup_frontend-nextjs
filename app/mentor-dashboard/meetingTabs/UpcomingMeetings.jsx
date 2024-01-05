@@ -5,9 +5,11 @@ import qs from 'query-string';
 import Avatar from "@/app/components/Avatar";
 import Button from "@/app/components/Button";
 
-import { GoQuestion } from "react-icons/go";
+import { TbProgressCheck } from "react-icons/tb";
 import { IoTimerOutline } from "react-icons/io5";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import { PiNotePencil } from "react-icons/pi";
+import { SiGooglemeet } from "react-icons/si";
 
 import useAcceptMeetingModal from "@/app/hooks/useAcceptMeetingModal";
 
@@ -25,7 +27,7 @@ const MeetingCard = ({ meeting, onCardClick, selectedMeeting }) => {
             onClick={handleCardClick}> 
 
             <div className={`space-y-2 px-8 mb-2 flex flex-col items-center justify-center ${meeting._id === selectedMeeting ? ' md:w-1/3' : ''}`}>
-                <Avatar  src={meeting.sender.img} width={70} height={55} />
+                <Avatar  src={meeting.sender.img} width={70} height={70} />
 
                 <div>
                     <strong className="text-sm  text-gray-900">
@@ -49,9 +51,9 @@ const MeetingCard = ({ meeting, onCardClick, selectedMeeting }) => {
                         </p>
                 </div>
 
-                <div className="flex ">
-                    <GoQuestion className="text-lg"/>
-                        <p className="text-sm text-orange-300 truncate ml-1">
+                <div title="status" className="flex ">
+                    <TbProgressCheck  className="text-lg"/>
+                        <p className="text-sm text-green-400 truncate ml-1">
                             {meeting.status}
                         </p>
                 </div>      
@@ -62,21 +64,26 @@ const MeetingCard = ({ meeting, onCardClick, selectedMeeting }) => {
 
 
             {meeting._id === selectedMeeting && (
-            <div className={`flex-1 px-8 pt-4 md:pt-0 space-x-2`}>
-                <Button
-                    customWidth={"w-[150px]"}
-                    label="Accept / Decline"
-                    outline
-                    onClick={(e) => { e.stopPropagation(); acceptMeetingModal.onOpen(meeting._id) }}  >
-                </Button>
+            <div className={`flex-1  px-8 pt-2 md:pt-0 space-y-2`}>
+                <div className="flex space-x-2">
+                    <SiGooglemeet className="text-xl flex-shrink-0"/>
+                    <a href={meeting.meetingLink} className="text-sm text-blue-500 underline hover:text-blue-800" target="_blank">{meeting.meetingLink}</a>
+                </div>
+                {meeting.note && (
+                    <div className="flex space-x-2">
+                        <PiNotePencil className="text-xl flex-shrink-0"/>
+                        <p className="text-sm " >{meeting.note}</p>
+                    </div>
+                )}
 
+            
             </div>
             )}
         </div>
     );
   };
 
-const PendingMeetings = ({meetings}) => { 
+const UpcomingMeetings = ({meetings}) => { 
     const [selectedMeeting, setSelectedMeeting] = useState(null);
 
     const handleCardClick = (id) => {
@@ -103,4 +110,4 @@ const PendingMeetings = ({meetings}) => {
     };
 
 
-export default PendingMeetings;
+export default UpcomingMeetings;

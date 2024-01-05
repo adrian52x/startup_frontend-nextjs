@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import EmptyState from "../components/EmptyState";
 import PendingMeetings from "./meetingTabs/PendingMeetings";
+import UpcomingMeetings from "./meetingTabs/UpcomingMeetings";
 
 const MentorDashboard = ({meetings, currentUser}) => { 
     //console.log(meetings);
@@ -20,7 +21,7 @@ const MentorDashboard = ({meetings, currentUser}) => {
 
     const tabContent = {
         Upcoming: {
-          content: <div>Upcoming content</div>,
+          content: <UpcomingMeetings meetings={meetingsCount.Upcoming}/>,
           emptyState: "You currently don't have any upcoming meetings."
         },
         Pending: {

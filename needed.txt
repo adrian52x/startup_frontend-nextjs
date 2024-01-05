@@ -10,6 +10,10 @@ npm i query-string
 
 npx @tremor/cli@latest init
 
+npm install stripe @stripe/stripe-js @stripe/react-stripe-js
+
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=<your_publishable_key>
+NEXT_PUBLIC_STRIPE_SECRET_KEY=<your_secret_key>
 
 
 
