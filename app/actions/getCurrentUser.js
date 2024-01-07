@@ -21,7 +21,7 @@ export default async function getCurrentUser() {
     } else {
 
         if (!session?.user?.registerMethod) { // if logged in with Google Auth
-            const url = `http://localhost:5000/api/user/email/${session?.user?.email}`;
+            const url = `${process.env.BACKEND_URL}/api/user/email/${session?.user?.email}`;
             const response = await fetch(url, { cache: 'no-store' });
 
             if (!response.ok) {

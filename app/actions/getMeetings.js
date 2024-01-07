@@ -21,10 +21,10 @@ export default async function getMeetings(params) {
 
     if (JSON.stringify(query) === '{}') {
         console.log("meetings - empty");
-        url = `http://localhost:5000/api/meetings`;
+        url = `${process.env.BACKEND_URL}/api/meetings`;
     } else {
         console.log("meetings - not empty");
-        url = `http://localhost:5000/api/meetings?${queryString}`;
+        url = `${process.env.BACKEND_URL}/api/meetings?${queryString}`;
     }
 
   

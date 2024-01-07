@@ -26,7 +26,7 @@ export const authOptions = {
           email: credentials.email,
           password: credentials.password,
         };              
-        const res = await fetch("http://localhost:5000/api/login", {
+        const res = await fetch(`${process.env.BACKEND_URL}/api/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -55,7 +55,7 @@ export const authOptions = {
 
 			//assert if  user exists in our custom DB
 			const response = await axios.post(
-				"http://localhost:5000/api/userExists",
+				`${process.env.BACKEND_URL}/api/userExists`,
 				{ email: profile.email }
 			);
 
@@ -71,7 +71,7 @@ export const authOptions = {
 				};
 
 				//console.log(data);
-				await axios.post("http://localhost:5000/api/register-oauth", data);
+				await axios.post(`${process.env.BACKEND_URL}/api/register-oauth`, data);
 				// retruns true thereby passing control to the next callback
 				return true;
 			}

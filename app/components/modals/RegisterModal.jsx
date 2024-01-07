@@ -44,7 +44,7 @@ const RegisterModal= () => {
         setIsLoading(true);
         console.log("data", data);
     
-        axios.post('http://localhost:5000/api/register', data)
+        axios.post(`${process.env.BACKEND_URL}/api/register`, data)
         .then(() => {
           toast.success('Registered!');
           registerModal.onClose();

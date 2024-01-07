@@ -24,10 +24,10 @@ export default async function getMentors(params) {
 
         if (JSON.stringify(query) === '{}') {
             console.log("empty");
-            url = `http://localhost:5000/api/mentors`;
+            url = `${process.env.BACKEND_URL}/api/mentors`;
         } else {
             console.log("not empty");
-            url = `http://localhost:5000/api/mentors?${queryString}`;
+            url = `${process.env.BACKEND_URL}/api/mentors?${queryString}`;
         }
 
         
