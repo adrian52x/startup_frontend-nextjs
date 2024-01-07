@@ -4,7 +4,8 @@ import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
-const endpointSecret = "whsec_b01587d47ee90d98f41f233d2c6bdc9837f9bce717c9d51619789618615b9fd7";
+//const endpointSecret = "whsec_b01587d47ee90d98f41f233d2c6bdc9837f9bce717c9d51619789618615b9fd7";
+const endpointSecret = process.env.WEBHOOK_SECRET1;
 
 // export const config = {
 //   api: {
