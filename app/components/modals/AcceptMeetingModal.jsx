@@ -44,7 +44,7 @@ const AcceptMeetingModal = () => {
 		
 	  
 		// Make the API call
-		fetch(`${process.env.BACKEND_URL}/api/meetings/accept`, {
+		fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/meetings/accept`, {
 		  method: 'PUT',
 		  headers: {
 			'Content-Type': 'application/json',

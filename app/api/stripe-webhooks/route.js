@@ -35,7 +35,7 @@ let event;
     console.log("metadata from webhook", session.metadata);
     // Payment was successful.
     // Call your booking creation API here.
-    const bookingResponse = await fetch(`${process.env.BACKEND_URL}/api/meetings`, {
+    const bookingResponse = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/meetings`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

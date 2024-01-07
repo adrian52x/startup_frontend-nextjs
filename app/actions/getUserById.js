@@ -2,7 +2,7 @@ export default async function getUserById(params) {
     try {
       const { userId } = params;
 
-      const url = `${process.env.BACKEND_URL}/api/user/id/${userId}`;
+      const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/id/${userId}`;
       const response = await fetch(url, { cache: 'no-store' });
   
       if (!response.ok) {
