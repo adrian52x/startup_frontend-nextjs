@@ -23,7 +23,7 @@ const Navbar = ({ currentUser }) => {
 
 
     //const { data: session, status } = useSession();
-    console.log("currentUser", currentUser);
+    //console.log("currentUser", currentUser);
 
 
     return (

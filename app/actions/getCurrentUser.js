@@ -16,11 +16,11 @@ export default async function getCurrentUser() {
 
     
 
-    if (!session?.user?.email) {
+    if (!session?.user?.email) { // if not logged in
       return null;
     } else {
 
-        if (!session?.user?.registerMethod) {
+        if (!session?.user?.registerMethod) { // if logged in with Google Auth
             const url = `http://localhost:5000/api/user/email/${session?.user?.email}`;
             const response = await fetch(url, { cache: 'no-store' });
 
@@ -31,8 +31,8 @@ export default async function getCurrentUser() {
             const user = await response.json();
             return user;
         }
-
-        return session?.user;
+        
+        return session?.user; // if logged in with email/password
     }
 
   } catch (error) {

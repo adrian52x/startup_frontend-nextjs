@@ -33,6 +33,6 @@ export default async function getMeetings(params) {
       return meetings;
       
     } catch (error) {
-      throw new Error(error);
+      throw new Error(`Fetch failed: ${error.message}`);
     }
   }

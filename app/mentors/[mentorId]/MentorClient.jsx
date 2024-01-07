@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 
 import { DatePicker } from "@tremor/react";
 import Avatar from '@/app/components/Avatar';
-import CheckoutButton from '@/app/components/checkout/index.jsx';
+import CheckoutButton from '@/app/components/payment/CheckoutButton.jsx';
 
 const MentorClient = ({mentor, currentUser, reservations = []}) => { 
 
@@ -20,53 +20,73 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState('');
 
+
+    // testing
+    let meetingBodyCheckout = {
+        receiver: mentor._id,
+        sender: currentUser?._id,
+        receiverFullName: mentor.firstName + ' ' + mentor.lastName,
+        senderFullName: currentUser?.firstName + ' ' + currentUser?.lastName,
+        date: selectedDate?.toLocaleDateString('en-CA', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+          }),
+        time: selectedTime,
+        price: mentor.price
+    }
+
+
+
     const handleDateChange = (date) => {
         setSelectedDate(date);
     };
 
-    const createBooking = async (mentor, date, time) => {
-        if (!currentUser) { 
-            toast.error('You must be logged in to book a session');
-            return;
-        }
+    // Transfered to stripe-webhook
+
+    // const createBooking = async (mentor, date, time) => {
+    //     if (!currentUser) { 
+    //         toast.error('You must be logged in to book a session');
+    //         return;
+    //     }
         
 
-        const status = "pending";
+    //     const status = "pending";
 
-        let body = {
-            receiver: mentor._id,
-            sender: currentUser._id,
-            date: date,
-            time: time,
-            status: status
-        }
+    //     let body = {
+    //         receiver: mentor._id,
+    //         sender: currentUser._id,
+    //         date: date,
+    //         time: time,
+    //         status: status
+    //     }
         
-        //console.log(body);
+    //     //console.log(body);
 
-        try {
-            const response = await fetch('http://localhost:5000/api/meetings', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(body),
-            });
+    //     try {
+    //         const response = await fetch('http://localhost:5000/api/meetings', {
+    //           method: 'POST',
+    //           headers: {
+    //             'Content-Type': 'application/json',
+    //           },
+    //           body: JSON.stringify(body),
+    //         });
         
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
+    //         if (!response.ok) {
+    //           throw new Error(`HTTP error! status: ${response.status}`);
+    //         }
 
-            if(response.ok) {
-                toast.success('Booking created successfully');
-            }
+    //         if(response.ok) {
+    //             toast.success('Booking created successfully');
+    //         }
         
-            //const meeting = await response.json();
+    //         //const meeting = await response.json();
         
-            //console.log(meeting);
-          } catch (error) {
-            console.error('Failed to create booking:', error);
-          }
-    }
+    //         //console.log(meeting);
+    //         } catch (error) {
+    //         console.error('Failed to create booking:', error);
+    //     }
+    // }
 
     return (
         <div className='w-full max-w-[1440px] md:mx-auto lg:px-20 md:px-10 sm:px-6'>
@@ -117,7 +137,6 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                         <Button label={time} outline={selectedTime !== time} small
                             onClick={() => setSelectedTime(time)}
                             key={index}
-                            //className={`${selectedTime === time ? 'bg-blue-700' : ''} bg-gray-400 text-white text-center p-4 hover:bg-blue-400 cursor-pointer`}
                         >
                             {time}
                         </Button>
@@ -131,13 +150,13 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                     <p className='text-neutral-500'>Selected time: 
                         <strong> {selectedTime}</strong>
                     </p>
-                   <Button
+                   {/* <Button
                         customWidth={"w-3/5"}
                         label="Book now"
                         small
                         onClick={() => createBooking(mentor, selectedDate, selectedTime)}  >
-                   </Button>
-                   <CheckoutButton amount={10} />
+                   </Button> */}
+                   <CheckoutButton meeting={meetingBodyCheckout} currentUser={currentUser} />
                 </div>)}
 
             </div>
