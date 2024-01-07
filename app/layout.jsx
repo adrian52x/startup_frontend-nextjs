@@ -8,7 +8,7 @@ import LoginModal from './components/modals/LoginModal';
 import Providers from './components/Providers';
 import getCurrentUser from './actions/getCurrentUser';
 import GuidelinesModal from './components/modals/GuidelinesModal';
-import AcceptMeetingModal from './components/modals/acceptMeetingModal';
+import AcceptMeetingModal from './components/modals/AcceptMeetingModal';
 
 
 const font = Inter({ subsets: ['latin'] })
