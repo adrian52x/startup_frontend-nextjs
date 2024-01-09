@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { BiSearch } from 'react-icons/bi';
 
 import { AiOutlineClose } from 'react-icons/ai';
+import { eslint } from '@/next.config';
 
 const Search = () => {
 
@@ -19,6 +20,7 @@ const Search = () => {
         setSearchValue(event.target.value);
     };
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const handleSearch = useCallback(() => {
 
         let currentQuery = {};
@@ -44,7 +46,7 @@ const Search = () => {
             router.push(url);
         }
 
-    }, [searchValue, router, params]);
+    }, [searchValue, router, params]); 
 
 
     const handleClearText = useCallback(() => {

@@ -62,7 +62,7 @@ const RegisterModal= () => {
       const onToggle = useCallback(() => {
         registerModal.onClose();
         loginModal.onOpen();
-      }, [registerModal])
+      }, [registerModal, loginModal]) // added loginModal here due to the error: React Hook useCallback has a missing dependency: 'loginModal'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
       const bodyContent = (
         <div className="flex flex-col gap-4">

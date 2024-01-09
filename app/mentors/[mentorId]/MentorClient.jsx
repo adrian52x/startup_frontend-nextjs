@@ -171,12 +171,8 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
             </h2>
             
             {/* Reviews itself */}
-            <div className="flex items-start my-6"> 
-                <img
-                    src={'/images/placeholder.jpg'}
-                    alt="User Avatar"
-                    className="w-12 h-12 rounded-full mr-4"
-                />
+            <div className="flex items-start my-6 space-x-4"> 
+                <Avatar src={'/images/placeholder.jpg'} width={48} height={48} />
                 <div>
                     <div className="flex items-center mb-2">
                     <h3 className="text-lg font-bold mr-2">John Doe</h3>
@@ -190,12 +186,8 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
             
             <hr />
 
-            <div className="flex items-start my-6"> 
-                <img
-                    src={'/images/placeholder.jpg'}
-                    alt="User Avatar"
-                    className="w-12 h-12 rounded-full mr-4"
-                />
+            <div className="flex items-start my-6 space-x-4"> 
+                <Avatar src={'/images/placeholder.jpg'} width={48} height={48} />
                 <div>
                     <div className="flex items-center mb-2">
                     <h3 className="text-lg font-bold mr-2">Carl Jhonson</h3>
