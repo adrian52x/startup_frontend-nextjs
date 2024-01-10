@@ -1,7 +1,6 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import Navbar from './components/navbar/Navbar';
 import RegisterModal from './components/modals/RegisterModal';
 import ToasterProvider from './components/ToasterProvider';
@@ -24,7 +23,6 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
         <body className={font.className}>
-          <SpeedInsights/>
           <Providers> 
             <ToasterProvider/>
             <RegisterModal/>
