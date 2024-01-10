@@ -14,8 +14,8 @@ import AcceptMeetingModal from './components/modals/AcceptMeetingModal';
 const font = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Pasha Site',
-  description: 'frontend',
+  title: 'Ask&Share',
+  description: 'Ask a professional for advice and share your knowledge with others.',
 }
 
 export default async function RootLayout({ children }) {
