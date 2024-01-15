@@ -15,7 +15,7 @@ export default function LoadingMentorsScreen() {
                                     animationDelay: `${i * 0.05}s`,
                                     animationDuration: '1s',
                                 }}
-                            > {i === 0 && 'Server response is slow. Please wait...'} 
+                            > {i === 0 && 'Loading...'} 
                             
                             </div>
                             <div 

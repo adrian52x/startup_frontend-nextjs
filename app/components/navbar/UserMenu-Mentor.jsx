@@ -62,12 +62,12 @@ const UserMenuMentor = ({ currentUser }) => {
                     <div ref={menuItemsRef} className="flex flex-col cursor-pointer">
                         {currentUser ? (
                         <>
-                            <MenuItem label="Mentor profile" onClick={() => router.push('/profile')}/>
-                            <MenuItem label="Account" />
-                            <MenuItem label="Messages" onClick={() => router.push('/messages')}/>
+                            <MenuItem label="Mentor profile" disabled/>
+                            <MenuItem label="Account" disabled/>
+                            <MenuItem label="Messages" disabled/>
                             <hr />
-                            <MenuItem label="Help Center" />
-                            <MenuItem label="Switch to ..?" />
+                            <MenuItem label="Help Center" disabled/>
+                            <MenuItem label="Switch to Main Page" onClick={() => router.push('/')}/>
                             <hr />
                             <MenuItem label="Logout" onClick={() => signOut({ callbackUrl: '/' })}/>
                         </>

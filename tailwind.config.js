@@ -11,6 +11,10 @@ module.exports = {
     transparent: "transparent",
     current: "currentColor",
     extend: {
+      transitionProperty: {
+        'height': 'height',
+        'spacing': 'margin, padding',
+      },
       colors: {
         // light mode
         tremor: {

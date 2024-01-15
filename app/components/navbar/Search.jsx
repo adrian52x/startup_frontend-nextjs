@@ -70,12 +70,12 @@ const Search = () => {
 
 
     return ( 
-        <div className="border-[1px] w-full  md:w-60 lg:w-80 xl:w-80 py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer">
+        <div className="border-[1px] w-full  md:w-60 lg:w-80 xl:w-[400px] py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer">
             <div className="flex flex-row items-center justify-between">
                 <div className="flex-grow font-semibold px-6 ">
                     <input
                         type="text"
-                        placeholder="Search for a mentor"
+                        placeholder="Search for a specialist"
                         className="w-full h-full py-1 pr-8 pl-3 rounded-full bg-white focus:outline-none  focus:border-transparent"
                         value={searchValue}
                         onChange={handleInputChange}

@@ -10,11 +10,8 @@ const AboutUser = ({user}) => {
                 </div>
                 <div>  
                     <br />
-                    C
                     <br />
-                    Text
-                    <br /> <br /> <br /> <br /> <br />  <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
-                    Text
+                    [ Page still in development... ]
                 </div>
             </div>
         </>

@@ -108,7 +108,7 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                     </p>
 
                     <div className="text-gray-600 pt-8 font-semibold">
-                        Other Info
+                        [ Demo description ]
                     </div>
                 </div>
                 <div className="col-span-2 sm:col-span-1">
@@ -156,7 +156,7 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                         small
                         onClick={() => createBooking(mentor, selectedDate, selectedTime)}  >
                    </Button> */}
-                   <CheckoutButton meeting={meetingBodyCheckout} currentUser={currentUser} />
+                   <CheckoutButton meeting={meetingBodyCheckout} currentUser={currentUser} /> [ Demo ]
                 </div>)}
 
             </div>
@@ -167,12 +167,12 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                 <AiFillStar size={20}/>
                 4.86
                 |
-                34 Reviews
+                34 Reviews  [ Demo ]
             </h2>
             
             {/* Reviews itself */}
             <div className="flex items-start my-6 space-x-4"> 
-                <Avatar src={'/images/placeholder.jpg'} width={48} height={48} />
+                <Avatar src={'https://i.imgur.com/Qih22FDb.jpg'} width={48} height={48} />
                 <div>
                     <div className="flex items-center mb-2">
                     <h3 className="text-lg font-bold mr-2">John Doe</h3>
@@ -187,10 +187,25 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
             <hr />
 
             <div className="flex items-start my-6 space-x-4"> 
-                <Avatar src={'/images/placeholder.jpg'} width={48} height={48} />
+                <Avatar src={'https://i.imgur.com/RiRSmfOb.jpg'} width={48} height={48} />
                 <div>
                     <div className="flex items-center mb-2">
                     <h3 className="text-lg font-bold mr-2">Carl Jhonson</h3>
+                    <span className="text-gray-500">- July 1, 2023</span>
+                    </div>
+                    <p className="text-gray-700 mb-2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, sapien eu fringilla fringilla, lectus justo finibus orci, ac tincidunt elit turpis eu mi.
+                    </p>
+                </div>
+            </div>
+
+            <hr />
+
+            <div className="flex items-start my-6 space-x-4"> 
+                <Avatar src={'/images/placeholder.jpg'} width={48} height={48} />
+                <div>
+                    <div className="flex items-center mb-2">
+                    <h3 className="text-lg font-bold mr-2">Carolina A.</h3>
                     <span className="text-gray-500">- July 1, 2023</span>
                     </div>
                     <p className="text-gray-700 mb-2">

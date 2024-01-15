@@ -9,13 +9,16 @@ import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import { usePathname } from 'next/navigation';
 
 import { signOut } from "next-auth/react";
 //import { useSession } from "next-auth/react";
 
 const UserMenu = ({ currentUser }) => {
     const router = useRouter();
-    //const { data: session, status } = useSession();
+    
+    const pathname = usePathname();
+    const isMainPage = pathname === '/';
 
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
@@ -48,10 +51,10 @@ const UserMenu = ({ currentUser }) => {
             <div className="flex flex-row items-center gap-3">
             <div 
                 onClick={() => {
-                    if (currentUser) {
-                        router.push(currentUser.isMentor ? '/mentor-dashboard' : '/getting-started');
+                    if (currentUser && currentUser.isMentor) {
+                        router.push('/mentor-dashboard');
                     } else {
-                        loginModal.onOpen();
+                        router.push('/getting-started');
                     }
                 }} 
                 className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
@@ -74,13 +77,13 @@ const UserMenu = ({ currentUser }) => {
                     <div ref={menuItemsRef} className="flex flex-col cursor-pointer">
                         {currentUser ? (
                         <>
-                            <MenuItem label={currentUser.firstName + ' ' + currentUser.lastName}/>
+                            {!isMainPage && (<MenuItem label="Main Page" onClick={() => router.push('/')}/>)}
                             <MenuItem label="Profile" onClick={() => router.push(`/users/${currentUser._id}`)}/>
                             <MenuItem label="My sessions" onClick={() => router.push('/meetings')}/>
-                            <MenuItem label="Messages" onClick={() => router.push('/messages')}/>
+                            <MenuItem label="Messages" disabled/>
                             
                             <hr />
-                            <MenuItem label="Help Center" />
+                            <MenuItem label="Help Center" disabled/>
                             <hr />
                             <MenuItem label="Logout" onClick={() => signOut({ callbackUrl: '/' })}/>
                         </>
