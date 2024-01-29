@@ -8,13 +8,18 @@ import Marquee from "react-fast-marquee";
 const MarqueeCard = ({ data }) => { 
     const router = useRouter();
 
-    return (
-        <div onClick={() => router.push(`/mentors/${data._id}`)} 
-        className="w-[200px] h-[200px] bg-white shadow-lg rounded-lg p-4 flex flex-col items-center space-y-2 mb-4 mx-3 cursor-pointer">
+    return ( 
+        <a 
+            href={`/mentors/${data._id}`}
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-[200px] h-[200px] bg-white shadow-lg rounded-lg p-4 flex flex-col items-center space-y-2 mb-4 mx-3 cursor-pointer">
+                
             <Avatar  src={data.img} width={64} height={64} />
             <h2 className="text-xl font-bold">{data.firstName + ' ' + data.lastName}</h2>
             <p className="text-base text-gray-500 text-center">{data.profession}</p>
-        </div>
+        
+        </a>
     )
     
 }
