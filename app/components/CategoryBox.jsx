@@ -28,7 +28,7 @@ const CategoryBox = ({ icon:Icon, label, selected,}) => {
         }
 
         const url = qs.stringifyUrl({
-        url: '/',
+        url: '/mentors',
         query: updatedQuery
         }, { skipNull: true });
 

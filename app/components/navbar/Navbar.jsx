@@ -3,6 +3,7 @@
 import Container from "../Container";
 import Logo from "./Logo";
 import Search from "./Search";
+import Button from "../Button";
 import UserMenu from "./UserMenu";
 import UserMenuMentor from "./UserMenu-Mentor";
 import Categories from "./Categories";
@@ -16,6 +17,8 @@ import { usePathname, useRouter  } from 'next/navigation';
 const Navbar = ({ currentUser }) => {
     const router = useRouter();
     const pathname = usePathname();
+
+    const isMentorsPage = pathname === '/mentors';
 
     const isMeetingsTab = pathname === '/mentor-dashboard';
     const isCalendarTab = pathname === '/mentor-dashboard/calendar';
@@ -33,7 +36,7 @@ const Navbar = ({ currentUser }) => {
                     {!pathname.startsWith('/mentor-dashboard') ? (
                         <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
                             <Logo />
-                            <Search />
+                            {isMentorsPage && <Search /> }
                             <UserMenu currentUser = {currentUser}/>
                         </div>
                     ) : (

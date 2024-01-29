@@ -4,8 +4,11 @@ import Container from "./components/Container";
 import MentorCard from "./components/mentors/MentorCard";
 import EmptyState from "./components/EmptyState";
 
+import Heading from "./components/Heading";
+
 import { Suspense, lazy } from 'react'
 import Loading from "./loading";
+import HeroSection from "./components/homePageElements/HeroSection";
 
 const MentorsDisplay = lazy(() => import('./components/mentors/MentorsDisplay'))
 
@@ -37,13 +40,26 @@ const MentorsDisplay = lazy(() => import('./components/mentors/MentorsDisplay'))
 // }
 
 
-export default async function Home() {
+// export default async function Home() {
 
-    return (
-        //<Loading/>
+//     return (
+
+//             <Suspense fallback={<Loading/>}>
+//                 <MentorsDisplay/>
+//             </Suspense>
+   
+//     )
+// }
+
+
+export default async function Home() {
     
-    <Suspense fallback={<Loading/>}>
-          <MentorsDisplay/>
-    </Suspense>
+    const mentors = await getMentors({});
+    return (
+        <>
+           <HeroSection mentors = {mentors}/>
+        </>
+    
+    
     )
 }

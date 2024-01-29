@@ -2,10 +2,10 @@
 export default function LoadingMentorsScreen() {
     return (
         <>
-            <span className="pt-30 flex justify-center items-center">
+            {/* <span className="pt-30 flex justify-center items-center">
             Loading...
-            </span>
-            <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
+            </span> */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
                 {[...Array(10).keys()].map((i) => (
                     <div key={i} className="col-span-1 cursor-pointer group shadow-full rounded-2xl overflow-hidden p-3"> 
                         <div className="flex flex-col gap-2 w-full">

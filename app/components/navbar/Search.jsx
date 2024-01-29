@@ -7,7 +7,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { BiSearch } from 'react-icons/bi';
 
 import { AiOutlineClose } from 'react-icons/ai';
-import { eslint } from '@/next.config';
 
 const Search = () => {
 
@@ -37,12 +36,12 @@ const Search = () => {
             if (params?.get('search')) {
                 delete updatedQuery.search;
 
-                const url = qs.stringifyUrl({ url: '/', query: updatedQuery }, { skipNull: true });
+                const url = qs.stringifyUrl({ url: '/mentors', query: updatedQuery }, { skipNull: true });
                 router.push(url);
             }
         } else {
             
-            const url = qs.stringifyUrl({ url: '/', query: updatedQuery }, { skipNull: true });
+            const url = qs.stringifyUrl({ url: '/mentors', query: updatedQuery }, { skipNull: true });
             router.push(url);
         }
 
@@ -61,7 +60,7 @@ const Search = () => {
     
         if (params?.get('search')) {
             delete currentQuery.search;
-            const url = qs.stringifyUrl({ url: '/' , query: currentQuery}, { skipNull: true });
+            const url = qs.stringifyUrl({ url: '/mentors' , query: currentQuery}, { skipNull: true });
             router.push(url);
         }
         
@@ -70,7 +69,7 @@ const Search = () => {
 
 
     return ( 
-        <div className="border-[1px] w-full  md:w-60 lg:w-80 xl:w-[400px] py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer">
+        <div className="border-[1px] w-full h-[50px] md:w-60 lg:w-80 xl:w-[400px] py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer">
             <div className="flex flex-row items-center justify-between">
                 <div className="flex-grow font-semibold px-6 ">
                     <input
