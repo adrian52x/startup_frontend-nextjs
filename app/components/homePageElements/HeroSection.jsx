@@ -27,11 +27,11 @@ const MarqueeCard = ({ data }) => {
 const HeroSection = ({mentors}) => {
     const phrases = ['specialists.', 'students.', 'professionals.'];
     const router = useRouter();
-    console.log("mentors", mentors);
+    //console.log("mentors", mentors);
     return (
         <Container>
             <div className="mt-16 mb-16 flex flex-col items-center justify-center  space-y-2 py-2">
-                <span className="mb-6 text-cyan-900">Learn a new skill, launch a project, land your dream career.</span>
+                <span className="mb-6 text-cyan-900">Discover answers, share knowledge, and connect with a community eager to learn and grow.</span>
 
 
                 <span className="text-cyan-900 text-5xl font-bold">1-on-1 Meetings</span>
@@ -47,14 +47,19 @@ const HeroSection = ({mentors}) => {
                 > Browse all mentors </button>
                 
             </div>
-            <Marquee gradient="true" gradientColor="white">
+            
+            {mentors?.length > 0 ? (
+                <Marquee gradient="true" gradientColor="white">
                 {mentors.map((mentor) => (
                     <MarqueeCard
-                        key={mentor._id}
-                        data={mentor}
+                    key={mentor._id}
+                    data={mentor}
                     />
                 ))}
-            </Marquee>
+                </Marquee>
+            ) : (
+                <p className="text-center text-xl text-rose-300">Failed to load data. Please try again later.</p>
+            )}
            
             
         </Container> 
