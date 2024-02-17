@@ -9,6 +9,8 @@ import Heading from "./components/Heading";
 import { Suspense, lazy } from 'react'
 import Loading from "./loading";
 import HeroSection from "./components/homePageElements/HeroSection";
+import AboutUsSection from "./components/homePageElements/AboutUsSection";
+import FAQsection from "./components/homePageElements/FAQsection";
 
 const MentorsDisplay = lazy(() => import('./components/mentors/MentorsDisplay'))
 
@@ -57,7 +59,9 @@ export default async function Home() {
     const mentors = await getMentors({});
     return (
         <>
-           <HeroSection mentors = {mentors}/>
+            <HeroSection mentors = {mentors}/>
+            <AboutUsSection/>
+            <FAQsection/>
         </>
     
     

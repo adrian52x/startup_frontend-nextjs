@@ -32,7 +32,7 @@ export default async function RootLayout({ children }) {
             <Navbar currentUser = {currentUser}/>
             
            
-            <div className="py-24 px-4">
+            <div className="py-24">
               {children}
             </div>
           </Providers>

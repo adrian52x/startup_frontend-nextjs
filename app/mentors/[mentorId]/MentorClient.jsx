@@ -154,9 +154,18 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                         customWidth={"w-3/5"}
                         label="Book now"
                         small
-                        onClick={() => createBooking(mentor, selectedDate, selectedTime)}  >
-                   </Button> */}
-                   <CheckoutButton meeting={meetingBodyCheckout} currentUser={currentUser} /> [ Demo ]
+                        onClick={() => createBooking(mentor, selectedDate, selectedTime)}  > 
+                   </Button>  */}
+                   <Button
+                        customWidth={"w-3/5"}
+                        label="Book now"
+                        small
+                        onClick={() => {
+                            window.open('https://revolut.me/r/gyxFudI2Mb?fbclid=IwAR1xqHvS8-ydRvBlwdg8-1OXkRW-ZLu6kTFXRIvKqV4qQs4RW9aDq9vSor8', '_blank');
+                        }}
+                        >
+                    </Button> [ Revolut ]
+                   <CheckoutButton meeting={meetingBodyCheckout} currentUser={currentUser} /> [ Stripe ]
                 </div>)}
 
             </div>

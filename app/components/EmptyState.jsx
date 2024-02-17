@@ -35,7 +35,7 @@ const EmptyState = ({
           <Button
             outline
             label="Remove all filters"
-            onClick={() => router.push('/')}
+            onClick={() => router.push('/mentors')}
           />
         )}
       </div>

@@ -1,0 +1,33 @@
+.divider
+{
+	position: relative;
+	margin-top: 200px;
+	height: 1px;
+}
+
+.divider-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divider-line:before
+{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 5%;
+	right: 5%;
+	width: 90%;
+	height: 3.5px;
+	background-image: linear-gradient(to right, transparent, #164e63, transparent);
+}
+
+.divider-line span {
+    position: absolute;
+    background: white;
+    padding: 0 10px;
+    font-family: 'Prospect'; /* Replace 'Prospect' with the actual font name if it's different */
+    font-size: 20px;
+    color: #164e63;
+  }
