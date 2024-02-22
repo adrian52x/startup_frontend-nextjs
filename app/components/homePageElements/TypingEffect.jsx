@@ -15,10 +15,10 @@ const TypingEffect = ({ phrases }) => {
       
           if (isDeleting) {
             setText(fullPhrase.substring(0, text.length - 1));
-            setTypingSpeed(50);
+            setTypingSpeed(40);
           } else {
             setText(fullPhrase.substring(0, text.length + 1));
-            setTypingSpeed(100);
+            setTypingSpeed(80);
           }
       
           if (!isDeleting && text === fullPhrase) {
@@ -34,7 +34,7 @@ const TypingEffect = ({ phrases }) => {
     }, [text, isDeleting, loopNum]); // This effect depends on the text, isDeleting, and loopNum state
   
     return (
-      <h1 className=" text-rose-300">{text}<span className="blink">|</span></h1>
+      <h1 className=" text-orange-300">{text}<span className="blink">|</span></h1>
     );
   };
   

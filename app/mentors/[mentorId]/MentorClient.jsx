@@ -10,7 +10,7 @@ import { DatePicker } from "@tremor/react";
 import Avatar from '@/app/components/Avatar';
 import CheckoutButton from '@/app/components/payment/CheckoutButton.jsx';
 
-const MentorClient = ({mentor, currentUser, reservations = []}) => { 
+const MentorClient = ({mentor, currentUser}) => { 
 
     const timeFrames = [
         '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30',
@@ -99,24 +99,45 @@ const MentorClient = ({mentor, currentUser, reservations = []}) => {
                             <div className='ml-4'>
                                 <h2 className="text-xl font-bold">{mentor.firstName} {mentor.lastName}</h2>
                                 <p className="text-gray-500">{mentor.email}</p>
-                                <code className="text-gray-500 italic">{mentor.profession}</code>
+                                {/* <code className="text-gray-500 italic">{mentor.profession}</code> */}
                             </div>
                     </div>
-                    <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, sapien eu fringilla fringilla, lectus justo finibus orci, ac tincidunt elit turpis eu mi.
-                        Sed aliquam, sapien eu fringilla fringilla, lectus justo finibus orci, ac tincidunt elit turpis eu mi.
-                        Sed aliquam, sapien eu fringilla fringilla, lectus justo finibus orci, ac tincidunt elit turpis eu mi.
-                    </p>
 
-                    <div className="text-gray-600 pt-8 font-semibold">
-                        [ Demo description ]
+                    {mentor.studies.length > 0 ? (
+                        <div className="text-gray-600 flex space-x-2">
+                            <p>Studied:</p>
+                            <p className="font-semibold">{mentor.studies.join(", ")}</p>
+                        </div>
+                    ) : null}
+
+                    {mentor.company !== null ? (
+                        <div className="text-gray-600 flex space-x-2">
+                            <p>Company:</p>
+                            <p className="font-semibold">{mentor.company}</p>
+                        </div>
+                    ) : null}
+
+                    {mentor.profession !== null ? (
+                        <div className="text-gray-600 flex space-x-2">
+                            <p>Position:</p>
+                            <p className="font-semibold">{mentor.profession}</p>
+                        </div>
+                    ) : null}
+
+                    <div className="col-span-2 sm:col-span-1">
+                    <p className="text-gray-600 pt-8 italic">
+                        Offers assistance with elaborating the CV, preparing for a job interview, revealing professional insights, 
+                        suggesting studies, and will offer you an open day at their workplace.
+                    </p>
                     </div>
+                    
                 </div>
-                <div className="col-span-2 sm:col-span-1">
+                {/* <div className="col-span-2 sm:col-span-1">
                     <div className="aspect-w-16 aspect-h-9">
                         <iframe src="https://www.youtube.com/embed/p2vpqKBPj4U" title="Mentor Video" className="w-full h-80  rounded-lg" allowFullScreen>
                         </iframe>                    
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
 

@@ -88,7 +88,7 @@ const Search = () => {
                         </div>
                     )}
                         
-                    <div className="p-2 bg-rose-500 rounded-full text-white" onClick={handleSearch}> 
+                    <div className="p-2 bg-orange-400 rounded-full text-white" onClick={handleSearch}> 
                         <BiSearch size={18} />
                     </div>
                 </div>

@@ -21,11 +21,12 @@ const MarqueeCard = ({ data }) => {
         
         </a>
     )
-    
+    //1-on-1 Meetings
+    //With experienced
 }
 
 const HeroSection = ({mentors}) => {
-    const phrases = ['specialists.', 'students.', 'professionals.'];
+    const phrases = ['1-on-1 Sessions.', 'Personalized Job Shadowing.'];
     const router = useRouter();
     //console.log("mentors", mentors);
     return (
@@ -34,22 +35,21 @@ const HeroSection = ({mentors}) => {
                 <span className="mb-6 text-cyan-900">Discover answers, share knowledge, and connect with a community eager to learn and grow.</span>
 
 
-                <span className="text-cyan-900 text-5xl font-bold">1-on-1 Meetings</span>
-                <div className="text-cyan-900 text-5xl font-bold md:flex space-x-2">
-                    <h1>With experienced</h1>   
+                <span className="text-cyan-900 text-5xl font-bold">Discover Careers through</span>
+                <div className="text-cyan-900 text-5xl font-bold md:flex space-x-2">  
                     <TypingEffect phrases={phrases}/>
                 </div>
 
                 <br />
 
-                <button className="rounded-lg shadow-2xfull w-[350px] py-3 px-4 bg-gray-300 text-neutral-600 hover:bg-rose-300 hover:text-slate-700 transition  font-semibold"
+                <button className="rounded-lg shadow-2xfull w-[350px] py-3 px-4 bg-gray-300 text-neutral-600 hover:bg-orange-300 hover:text-slate-700 transition  font-semibold"
                     onClick={() => router.push('/mentors')}
                 > Browse all mentors </button>
                 
             </div>
             
             {mentors?.length > 0 ? (
-                <Marquee gradient="true" gradientColor="white">
+                <Marquee gradient="true" gradientColor="white" gradientWidth={50}>
                 {mentors.map((mentor) => (
                     <MarqueeCard
                     key={mentor._id}

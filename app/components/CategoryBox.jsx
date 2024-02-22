@@ -48,7 +48,7 @@ const CategoryBox = ({ icon:Icon, label, selected,}) => {
             hover:text-neutral-800
             transition
             cursor-pointer
-            hover:border-b-red-300
+            hover:border-b-orange-300
             ${selected ? 'border-b-neutral-800' : 'border-transparent'}
             ${selected ? 'text-black-900' : 'text-neutral-500'}
         `}>
