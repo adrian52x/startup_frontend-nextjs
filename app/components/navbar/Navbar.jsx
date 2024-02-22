@@ -35,8 +35,8 @@ const Navbar = ({ currentUser }) => {
                 <Container>
                     {!pathname.startsWith('/mentor-dashboard') ? (
                         <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
-                            <Logo />
-                            {isMentorsPage && <Search /> }
+                            <div className={`justify-center ${isMentorsPage ? 'hidden sm:block' : ''}`}><Logo/></div>
+                            {isMentorsPage ? <Search/> : null }
                             <UserMenu currentUser = {currentUser}/>
                         </div>
                     ) : (

@@ -13,7 +13,7 @@ const MarqueeCard = ({ data }) => {
             href={`/mentors/${data._id}`}
             target="_blank" 
             rel="noopener noreferrer"
-            className="w-[200px] h-[200px] bg-white shadow-lg rounded-lg p-4 flex flex-col items-center space-y-2 mb-4 mx-3 cursor-pointer">
+            className="w-[200px] h-[200px] bg-white hover:bg-neutral-100 shadow-lg rounded-lg p-4 flex flex-col items-center space-y-2 mb-4 mx-3 cursor-pointer border-b-2 border-t-2 border-orange-300">
                 
             <Avatar  src={data.img} width={64} height={64} />
             <h2 className="text-xl font-bold">{data.firstName + ' ' + data.lastName}</h2>
@@ -31,7 +31,7 @@ const HeroSection = ({mentors}) => {
     //console.log("mentors", mentors);
     return (
         <Container>
-            <div className="mt-16 mb-16 flex flex-col items-center justify-center  space-y-2 py-2">
+            <div className="mt-16 mb-16 flex flex-col items-center md:justify-center  space-y-2 py-2">
                 <span className="mb-6 text-cyan-900">Discover answers, share knowledge, and connect with a community eager to learn and grow.</span>
 
 

@@ -84,6 +84,7 @@ const UserMenu = ({ currentUser }) => {
                             
                             <hr />
                             <MenuItem label="Help Center" disabled/>
+                            {currentUser?.isMentor ? (<MenuItem label="Mentor Dashboard" onClick={() => router.push('/mentor-dashboard')}/>) : (<MenuItem label="Share your experience" onClick={() => router.push('/getting-started')}/>)}
                             <hr />
                             <MenuItem label="Logout" onClick={() => signOut({ callbackUrl: '/' })}/>
                         </>

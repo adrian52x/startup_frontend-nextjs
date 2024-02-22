@@ -61,7 +61,7 @@ const MentorCard = ({
   return (
     <div 
       onClick={() => router.push(`/mentors/${data._id}`)} 
-      className="col-span-1 cursor-pointer group shadow-full rounded-2xl overflow-hidden p-3"
+      className="col-span-1 cursor-pointer group shadow-full rounded-2xl overflow-hidden p-3 border-b-4 hover:border-orange-300"
     >
         <div className="flex flex-col gap-2 w-full">
                 <div className="aspect-square w-full relative overflow-hidden rounded-xl">

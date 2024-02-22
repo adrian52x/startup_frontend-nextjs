@@ -69,7 +69,7 @@ const Search = () => {
 
 
     return ( 
-        <div className="border-[1px] w-full h-[50px] md:w-60 lg:w-80 xl:w-[400px] py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer">
+        <div className="border-[1px] w-full h-[50px] sm:w-[350px] md:w-[400px] lg:w-[500px] xl:w-[600px] py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer">
             <div className="flex flex-row items-center justify-between">
                 <div className="flex-grow font-semibold px-6 ">
                     <input
