@@ -182,7 +182,7 @@ const MentorClient = ({mentor, currentUser}) => {
                         label="Book now"
                         small
                         onClick={() => {
-                            window.open('https://revolut.me/r/gyxFudI2Mb?fbclid=IwAR1xqHvS8-ydRvBlwdg8-1OXkRW-ZLu6kTFXRIvKqV4qQs4RW9aDq9vSor8', '_blank');
+                            window.open('https://revolut.me/r/buC6WJnXU5', '_blank');
                         }}
                         >
                     </Button> [ Revolut ]
