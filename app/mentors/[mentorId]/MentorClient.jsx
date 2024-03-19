@@ -43,50 +43,51 @@ const MentorClient = ({mentor, currentUser}) => {
     };
 
     // Transfered to stripe-webhook
-
-    // const createBooking = async (mentor, date, time) => {
-    //     if (!currentUser) { 
-    //         toast.error('You must be logged in to book a session');
-    //         return;
-    //     }
+    const createBooking = async (mentor, date, time) => {
+        if (!currentUser) { 
+            toast.error('You must be logged in to book a session');
+            return;
+        }
         
 
-    //     const status = "pending";
+        const status = "pending";
 
-    //     let body = {
-    //         receiver: mentor._id,
-    //         sender: currentUser._id,
-    //         date: date,
-    //         time: time,
-    //         status: status
-    //     }
+        let body = {
+            receiver: mentor._id,
+            sender: currentUser._id,
+            date: date,
+            time: time,
+            status: status
+        }
         
-    //     //console.log(body);
+        //console.log(body);
 
-    //     try {
-    //         const response = await fetch('http://localhost:5000/api/meetings', {
-    //           method: 'POST',
-    //           headers: {
-    //             'Content-Type': 'application/json',
-    //           },
-    //           body: JSON.stringify(body),
-    //         });
+        try {
+            const response = await fetch('http://localhost:5000/api/meetings', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(body),
+            });
         
-    //         if (!response.ok) {
-    //           throw new Error(`HTTP error! status: ${response.status}`);
-    //         }
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
 
-    //         if(response.ok) {
-    //             toast.success('Booking created successfully');
-    //         }
+            if(response.ok) {
+                toast.success('Booking created successfully');
+            }
         
-    //         //const meeting = await response.json();
+            //const meeting = await response.json();
         
-    //         //console.log(meeting);
-    //         } catch (error) {
-    //         console.error('Failed to create booking:', error);
-    //     }
-    // }
+            //console.log(meeting);
+            } catch (error) {
+            console.error('Failed to create booking:', error);
+        }
+    }
+
+
 
     return (
         <div className='w-full max-w-[1440px] md:mx-auto lg:px-20 md:px-10 sm:px-6'>
@@ -171,13 +172,13 @@ const MentorClient = ({mentor, currentUser}) => {
                     <p className='text-neutral-500'>Selected time: 
                         <strong> {selectedTime}</strong>
                     </p>
-                   {/* <Button
+                   <Button
                         customWidth={"w-3/5"}
                         label="Book now"
                         small
                         onClick={() => createBooking(mentor, selectedDate, selectedTime)}  > 
-                   </Button>  */}
-                   <Button
+                   </Button> 
+                   {/* <Button
                         customWidth={"w-3/5"}
                         label="Book now"
                         small
@@ -186,7 +187,7 @@ const MentorClient = ({mentor, currentUser}) => {
                         }}
                         >
                     </Button> [ Revolut ]
-                   <CheckoutButton meeting={meetingBodyCheckout} currentUser={currentUser} /> [ Stripe ]
+                   <CheckoutButton meeting={meetingBodyCheckout} currentUser={currentUser} /> [ Stripe ] */}
                 </div>)}
 
             </div>
